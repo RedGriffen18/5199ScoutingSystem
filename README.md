@@ -9,7 +9,7 @@ The entire system including the database storage, server-hosting program, and ht
 The form can be used to collect a variety of information, including team, robot, and performance data. It is whatever the designer needs it for. This information can be used to evaluate the performance of individual teams and robots and to make informed decisions about our pick list. The system can also be ported into Tableau which is a program used for graphical data and chart display for easy and quick data evaluation
 
 # Program dependencies:
-The entire system has no dependencies other than a network connected computer to run on. When loading the system for the first time you must make sure that the file php.7z is extracted in the same root location
+The entire system has no dependencies other than a network connected computer to run on. When loading the system for the first time you must make sure that the file php.zip is extracted in the same root location
 
 # HTML Form:
 The html form is in a .php file for server hosting, but contains regular html formatting with some JS and PHP code. The site is based on the 2023 Season FRC Game and has multiple questions, buttons, toggles, and selection GUI's for the purpose of maximum data collection for the purpose of scouting data.
