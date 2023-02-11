@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: "Google Sans Text", Arial, Helvetica, sans-serif;
+    
+}
+.bar {
+    height: 10vh;
+    bottom: 0;
+    position: fixed;
+    background: gray;
+    width: 100%;
+    z-index: 1;
+}
+.form {
+    height: 400%;
+    width: 100%;
+    background-color:#16478e;
+}
+.section {
+    height: 88vh;
+    padding-bottom: 12vh;
+}
+.grid {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+.block {
+    margin: auto;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    padding: 2vh 0;
+    text-align: center;
+    place-self: center;
+    border-radius: 20px;
+    width: 80%;
+}
+.bar .block img {
+    filter: invert(100%);
+    padding: 0;
+}
+.bar .block strong {
+    color: white;
+}
+
+/*Radio Robot Selector*/
+.radio {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+.radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.radioPiece {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+.radio:hover input ~ .radioPiece {
+    opacity: 0.5;
+}
+.radio input:checked ~ .radioPiece {
+    opacity: 1;
+}
+
+/*Checkbox Piece Selector*/
+.checkbox {
+    place-self: center;
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkboxPiece {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    border-radius: 50%;
+    background-color: #63626A;
+}
+.blank {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+}
+.checkbox input:checked ~ .checkboxPiece {
+    opacity: 1;
+}
