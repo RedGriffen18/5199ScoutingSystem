@@ -38,6 +38,8 @@
     place-self: center;
     border-radius: 20px;
     width: 80%;
+    font-size: medium;
+    color: #16478e;
 }
 .bar .block img {
     filter: invert(100%);
