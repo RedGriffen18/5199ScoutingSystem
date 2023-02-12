@@ -626,6 +626,93 @@
 </body>
 </html>
 <script>
+// Star Propper highlighting
+    //Speed Rating Stars
+    const inputsS = document.querySelectorAll('input[name="defenseSpeed"]');
+    const defenseSpeed1 = document.getElementById("defenseSpeed1");
+    const defenseSpeed2 = document.getElementById("defenseSpeed2");
+    const defenseSpeed3 = document.getElementById("defenseSpeed3");
+    const defenseSpeed4 = document.getElementById("defenseSpeed4");
+    const defenseSpeed5 = document.getElementById("defenseSpeed5");
+
+    inputsS.forEach(input => {
+      input.addEventListener('change', event => {
+        const value = event.target.value;
+        if (value === "2") {
+          defenseSpeed1.style.backgroundColor = "#16478e";
+          defenseSpeed2.style.backgroundColor = "gray";
+          defenseSpeed3.style.backgroundColor = "gray";
+          defenseSpeed4.style.backgroundColor = "gray";
+        } else if (value === "3") {
+          defenseSpeed1.style.backgroundColor = "#16478e";
+          defenseSpeed2.style.backgroundColor = "#16478e";
+          defenseSpeed3.style.backgroundColor = "gray";
+          defenseSpeed4.style.backgroundColor = "gray";
+        } else if (value === "4") {
+          defenseSpeed1.style.backgroundColor = "#16478e";
+          defenseSpeed2.style.backgroundColor = "#16478e";
+          defenseSpeed3.style.backgroundColor = "#16478e";
+          defenseSpeed4.style.backgroundColor = "gray";
+        }else if (value === "5") {
+          defenseSpeed1.style.backgroundColor = "#16478e";
+          defenseSpeed2.style.backgroundColor = "#16478e";
+          defenseSpeed3.style.backgroundColor = "#16478e";
+          defenseSpeed4.style.backgroundColor = "#16478e";
+        } else {
+          defenseSpeed1.style.backgroundColor = "gray";
+          defenseSpeed2.style.backgroundColor = "gray";
+          defenseSpeed3.style.backgroundColor = "gray";
+          defenseSpeed4.style.backgroundColor = "gray";
+        }
+      });
+    });
+
+    defenseSpeed1.style.backgroundColor = "#16478e";
+    defenseSpeed2.style.backgroundColor = "#16478e";
+
+    // Driver Rating Stars
+    const inputsR = document.querySelectorAll('input[name="defenseDriver"]');
+    const defenseDriver1 = document.getElementById("defenseDriver1");
+    const defenseDriver2 = document.getElementById("defenseDriver2");
+    const defenseDriver3 = document.getElementById("defenseDriver3");
+    const defenseDriver4 = document.getElementById("defenseDriver4");
+    const defenseDriver5 = document.getElementById("defenseDriver5");
+
+    inputsR.forEach(input => {
+      input.addEventListener('change', event => {
+        const value = event.target.value;
+        if (value === "2") {
+          defenseDriver1.style.backgroundColor = "#16478e";
+          defenseDriver2.style.backgroundColor = "gray";
+          defenseDriver3.style.backgroundColor = "gray";
+          defenseDriver4.style.backgroundColor = "gray";
+        } else if (value === "3") {
+          defenseDriver1.style.backgroundColor = "#16478e";
+          defenseDriver2.style.backgroundColor = "#16478e";
+          defenseDriver3.style.backgroundColor = "gray";
+          defenseDriver4.style.backgroundColor = "gray";
+        } else if (value === "4") {
+          defenseDriver1.style.backgroundColor = "#16478e";
+          defenseDriver2.style.backgroundColor = "#16478e";
+          defenseDriver3.style.backgroundColor = "#16478e";
+          defenseDriver4.style.backgroundColor = "gray";
+        }else if (value === "5") {
+          defenseDriver1.style.backgroundColor = "#16478e";
+          defenseDriver2.style.backgroundColor = "#16478e";
+          defenseDriver3.style.backgroundColor = "#16478e";
+          defenseDriver4.style.backgroundColor = "#16478e";
+        } else {
+          defenseDriver1.style.backgroundColor = "gray";
+          defenseDriver2.style.backgroundColor = "gray";
+          defenseDriver3.style.backgroundColor = "gray";
+          defenseDriver4.style.backgroundColor = "gray";
+        }
+      });
+    });
+
+    defenseDriver1.style.backgroundColor = "#16478e";
+    defenseDriver2.style.backgroundColor = "#16478e";
+       
 // Selection Order
     // Picked up Auton Piece
     const pieceData = document.querySelector('#pieceData');
