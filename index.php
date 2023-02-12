@@ -26,7 +26,7 @@
       $community = $_GET["community"];
       $gridDataTele = $_GET["gridDataTele"];
       $chargeTele = $_GET["chargeTele"];
-      $chargeBuddies = $_GET["chargeBuddies"];
+      $chargeTotal = $_GET["chargeTotal"];
       $defenseLocations = $_GET["defenseLocations"];
       $defenseSpeed = $_GET["defenseSpeed"];
       $defenseDriver = $_GET["defenseDriver"];
@@ -36,7 +36,7 @@
       $timerValue = $_GET["timerValue"];
 
       $file = fopen("scouting.csv", "a");
-      $data = array($name, $match, $team, $starting_piece, $starting_lane, $starting_piece1, $starting_piece2, $starting_piece3, $starting_piece4, $gridDataAuto, $pieceData, $chargeAuto, $community, $gridDataTele, $timerValue, $chargeTele, $chargeBuddies, $defenseLocations, $defenseSpeed, $defenseDriver, $defenseComments, $funnyComments, $breakButton);
+      $data = array($name, $match, $team, $starting_piece, $starting_lane, $starting_piece1, $starting_piece2, $starting_piece3, $starting_piece4, $gridDataAuto, $pieceData, $chargeAuto, $community, $gridDataTele, $timerValue, $chargeTele, $chargeTotal, $defenseLocations, $defenseSpeed, $defenseDriver, $defenseComments, $funnyComments, $breakButton);
       fputcsv($file, $data);
       fclose($file);
       header("Location: index.php#section1");
@@ -55,6 +55,7 @@
     </div>
     <!--Form Section-->
     <form class="form">
+        <!--Pre-Game-->
         <section class="section" id="section1">
             <div class="grid" style="grid-template-rows: repeat(5, 1fr); grid-template-columns: repeat(2, 1fr);">
                 <!--Name/Match/Team-->
@@ -64,7 +65,7 @@
                 <input class="block" type="number" name="team" autocomplete="off" placeholder="Team Number" style="grid-column: 1/2;">
                 <!--Starting Piece Selection-->
                 <div class="block">
-                    <strong style="color: #16478e;">Robot Starting Piece</strong>
+                    <strong>Robot Starting Piece</strong>
                     <div class="grid" style="grid-template-rows: repeat(1, 1fr); grid-template-columns: repeat(2, 1fr);">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="starting_piece" value="cone"> 
@@ -78,8 +79,10 @@
                         </label>
                     </div>
                 </div>
-                <div class="block" style="grid-row: 4/6; grid-column: 1/3; height: 100%; padding: 0; max-width: fit-content;">
-                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; height: 100%;">
+                <div class="block" style="grid-row: 4/6; grid-column: 1/3; height: 100%; padding: 0; margin: 0; max-width: fit-content;">
+                    <strong>Starting Lane and Starting Piece Selection</strong>
+                    <p>Select one of the lanes and click to change starting piece Icons</p>
+                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; height: 95%;">
                         <img src="Icons/fieldIcon.png" class="block" style="padding: 0; border-radius: 0; grid-column: 1/3; grid-row: 1/3; height: 100%; width: auto;">
                         <!--Starting Lane-->
                         <div class="block" style="background: none; padding: 0; height: 75%; width: 32.5%; grid-column: 1; grid-row: 1/3; margin-left: 55%;">
@@ -126,11 +129,14 @@
                     </div>
                 </div>
         </section>
+        <!--Autonomous-->
         <section class="section" id="section2">
             <div class="grid" style="grid-template-rows: repeat(5, 1fr); grid-template-columns: repeat(2, 1fr);">
                 <h1 class="block" style="width: 75%; grid-column: 1/3; grid-row: 1/2;"><strong>Autonomous</strong></h1>
                 <!--Grid Selector-->
                 <div class="block" style="grid-column: 1/3; grid-row: 2/4; padding: 0; width: auto; max-width: 80%; max-height: 100%";>
+                    <strong>Grid Placement Selection</strong>
+                    <p>Select the position that the robot scores a game piece during Auton</p>
                     <div class="grid" style="grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, 1fr); width: fit-content; height: 100%;">
                         <img src="Icons/gridIcon.png" class="block" style="grid-row: 1/4; grid-column: 1/10; width: 100%; padding: 0; height: 100%;">
 
@@ -249,7 +255,8 @@
                 </div>
                 <!--Picked Pieces-->
                 <div class="block" style="grid-column: 1/3;">
-                    <strong style="color: #16478e;">Picked up Pieces</strong>
+                    <strong >Picked up Pieces</strong>
+                    <p>Select the picked up starting pieces</p>
                     <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="1" class="pickedOrder">
@@ -276,7 +283,8 @@
                 <input name="pieceData" type="hidden" id="pieceData" value="">
                 <!--Charge Station-->
                 <div class="block">
-                    <strong style="color: #16478e;">Charge Station</strong>
+                    <strong >Charge Station</strong>
+                    <p>No Attempt - Failed - Docked - Enabled</p>
                     <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="chargeAuto" value="noattempt"> 
@@ -302,7 +310,7 @@
                 </div>
                 <!--Left Community-->
                 <div class="block">
-                    <strong style="color: #16478e;">Left Community?</strong>
+                    <strong >Left Community?</strong>
                     <div class="grid" style="grid-template-columns: repeat(2, 1fr); height: 100%; width: 100%;">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="community" value="stay">
@@ -318,11 +326,14 @@
                 </div>
             </div>
         </section>
+        <!--Teleoperated-->
         <section class="section" id="section3">
             <div class="grid" style="grid-template-rows: repeat(5, 1fr); grid-template-columns: repeat(2, 1fr);">
                 <h1 class="block" style="width: 75%; grid-column: 1/3; grid-row: 1/2;"><strong>Teleoperated</strong></h1>
                 <div class="block" style="grid-column: 1/3; grid-row: 2/4; padding: 0; width: auto; max-width: 80%; max-height: 100%";>
-                    <div class="grid" style="grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, 1fr); width: fit-content; height: 100%;">
+                <strong>Grid Placement Selection</strong>
+                <p>Select the position that the robot scores a game piece during Teleop</p>    
+                <div class="grid" style="grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, 1fr); width: fit-content; height: 100%;">
                         <img src="Icons/gridIcon.png" class="block" style="grid-row: 1/4; grid-column: 1/10; width: 100%; padding: 0; height: 100%;">
                         
                         <label class="checkbox" style="width: 65%; height: 65%; padding: 0; grid-column: 1; grid-row: 1;">
@@ -440,16 +451,18 @@
                 </div>
                 <!--Charge Time-->
                 <div class="block" style="grid-column: 1/3;">
-                    <strong style="color: #16478e;">Charge Timer</strong>
+                    <strong >Charge Timer</strong>
+                    <p>Start when the bot first touches the Charging Station. Stop when the bot stops moving</p>
                     <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
                         <button class="block"id="timerStart" style="background-color: #16478e; color: white; margin-top: 10%;" >Start Timer</button>
                         <button class="block"id="timerEnd" style="background-color: gray; color: white; margin-top: 10%;" disabled>Stop Timer</button>
-                        <input class="block" id="timerValue" name="timerValue" style="grid-column: 3/5; font-size: medium;" placeholder="Charge Time"></input>
+                        <input class="block" id="timerValue" name="timerValue" style="grid-column: 3/5; font-size: medium; margin-top: 5%;" placeholder="Charge Time"></input>
                     </div>
                 </div>
                 <!--Charge Station-->
                 <div class="block">
-                    <strong style="color: #16478e;">Charge Station</strong>
+                    <strong >Charge Station</strong>
+                    <p>No Attempt - Failed - Docked - Enabled</p>
                     <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="chargeTele" value="noattempt"> 
@@ -473,27 +486,28 @@
                         </label>
                     </div>
                 </div>
-                <!--Charge Buddies-->
+                <!--Total Charge Robots-->
                 <div class="block">
-                    <strong style="color: #16478e;">Charge Buddies</strong>
+                    <strong >Total Charge Robots</strong>
+                    <p>Number of robots on the charge station</p>
                     <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="chargeBuddies" value="0">
+                            <input type="radio" name="chargeTotal" value="0">
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">0</strong>
                         </label>
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="chargeBuddies" value="1">
+                            <input type="radio" name="chargeTotal" value="1">
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">1</strong>
                         </label>
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="chargeBuddies" value="2">
+                            <input type="radio" name="chargeTotal" value="2">
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">2</strong>
                         </label>
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="chargeBuddies" value="3">
+                            <input type="radio" name="chargeTotal" value="3">
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">3</strong>
                         </label>
@@ -501,12 +515,13 @@
                 </div>
             </div>
         </section>
+        <!--Post-Game-->
         <section class="section" id="section4">
             <div class="grid" style="grid-template-rows: repeat(5, 1fr); grid-template-columns: repeat(2, 1fr);">
                 <h1 class="block" style="width: 75%; grid-column: 1/3; grid-row: 1/2;"><strong>Post-Game</strong></h1>
                 <!--Defense Location-->
                 <div class="block" style="grid-column: 1/3;">
-                    <strong style="color: #16478e;">Defense Locations</strong>
+                    <strong >Defense Locations</strong>
                     <div class="grid" style="grid-template-columns: repeat(5, 1fr); height: 100%; width: 100%;">
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="center" class="defenseLocation">
@@ -538,29 +553,29 @@
                 </div>
                 <!--Speed Rating-->
                 <div class="block">
-                    <strong style="color: #16478e;">Speed Rating</strong>
+                    <strong >Bot Speed Rating</strong>
                     <div class="grid" style="grid-template-columns: repeat(5, 1fr); height: 100%; width: 100%;">
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" id="defenseSpeed1" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseSpeed" value="1"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" id="defenseSpeed2" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseSpeed" value="2"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" id="defenseSpeed3" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseSpeed" value="3" checked> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" id="defenseSpeed4" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseSpeed" value="4"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" id="defenseSpeed5" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseSpeed" value="5"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
@@ -569,29 +584,29 @@
                 </div>
                 <!--Defense Driver Rating-->
                 <div class="block">
-                    <strong style="color: #16478e;">Driver Rating</strong>
+                    <strong >Driver Rating</strong>
                     <div class="grid" style="grid-template-columns: repeat(5, 1fr); height: 100%; width: 100%;">
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" id="defenseDriver1" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseDriver" value="1"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" id="defenseDriver2" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseDriver" value="2"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" id="defenseDriver3" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseDriver" value="3" checked> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" id="defenseDriver4" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseDriver" value="4"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" id="defenseDriver5" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseDriver" value="5"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
@@ -614,9 +629,9 @@
         </section>
         <section class="section" id="section5">
             <div class="grid">
-                <div class="block">
-                    <div class="grid" style="grid-template-columns: repeat(2, 1fr); height: 100%; width: 100%;">
-                        <button class="block" type="reset" style="background-color: #16478e; color: white;" >Reset</button>
+                <div class="block" style="height: 15%;">
+                    <strong>Are you ready to submit?</strong>
+                    <div class="grid" style="grid-template-columns: repeat(1, 1fr); height: 100%; width: 100%;">
                         <input class="block" type="submit" style="background-color: #16478e; color: white;" value="Submit">
                     </div>
                 </div>
@@ -712,7 +727,8 @@
 
     defenseDriver1.style.backgroundColor = "#16478e";
     defenseDriver2.style.backgroundColor = "#16478e";
-       
+    
+
 // Selection Order
     // Picked up Auton Piece
     const pieceData = document.querySelector('#pieceData');
@@ -720,9 +736,9 @@
     inputsP.forEach(input => {
       input.addEventListener('change', function() {
         if (this.checked) {
-          pieceData.value += `${this.value}.`;
+          pieceData.value += `.${this.value}`;
         } else {
-          pieceData.value = pieceData.value.replace(`${this.value}.`, '');
+          pieceData.value = pieceData.value.replace(`.${this.value}`, '');
         }
       });
     });
