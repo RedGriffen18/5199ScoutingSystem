@@ -254,7 +254,7 @@
                     </div>
                 </div>
                 <!--Picked Pieces-->
-                <div class="block" style="grid-column: 2/3; grid-row: 4/6;">
+                <div class="block" style="grid-column: 1; grid-row: 4/6;">
                     <strong >Picked up Pieces</strong>
                     <p>Select the picked up starting pieces</p>
                     <div class="grid" style="grid-template-rows: repeat(4, 1fr); height: 100%; width: 100%;">
@@ -451,7 +451,7 @@
                     </div>
                 </div>
                 <!--Charge Time-->
-                <div class="block" style="grid-column: 2/3; grid-row: 4/6;">
+                <div class="block" style="grid-column: 1; grid-row: 4/6;">
                     <strong >Charge Timer</strong>
                     <p>Start when the bot first touches the Charging Station. Stop when the bot stops moving</p>
                     <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); height: 100%; width: 100%;">
