@@ -16,10 +16,10 @@
       $team = $_GET["team"];
       $starting_piece = $_GET["starting_piece"];
       $starting_lane = $_GET["starting_lane"];
-      $starting_piece1 = isset($_GET["starting_piece1"]) ? $_GET["starting_piece1"] : "cube";
-      $starting_piece2 = isset($_GET["starting_piece2"]) ? $_GET["starting_piece2"] : "cube";
-      $starting_piece3 = isset($_GET["starting_piece3"]) ? $_GET["starting_piece3"] : "cube";
-      $starting_piece4 = isset($_GET["starting_piece4"]) ? $_GET["starting_piece4"] : "cube";
+      $starting_piece1 = $_GET["starting_piece1"];
+      $starting_piece2 = $_GET["starting_piece2"];
+      $starting_piece3 = $_GET["starting_piece3"];
+      $starting_piece4 = $_GET["starting_piece4"];
       $gridDataAuto = $_GET["gridDataAuto"];
       $pieceData = $_GET["pieceData"];
       $chargeAuto = $_GET["chargeAuto"];
@@ -32,7 +32,7 @@
       $defenseDriver = $_GET["defenseDriver"];
       $defenseComments = $_GET["defenseComments"];
       $funnyComments = $_GET["funnyComments"];
-      $breakButton = isset($_GET["breakButton"]) ? $_GET["breakButton"] : "notbroke";
+      $breakButton = $_GET["breakButton"];
       $timerValue = $_GET["timerValue"];
 
       $file = fopen("scouting.csv", "a");
@@ -254,10 +254,10 @@
                     </div>
                 </div>
                 <!--Picked Pieces-->
-                <div class="block" style="grid-column: 1/3;">
+                <div class="block" style="grid-column: 2/3; grid-row: 4/6;">
                     <strong >Picked up Pieces</strong>
                     <p>Select the picked up starting pieces</p>
-                    <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
+                    <div class="grid" style="grid-template-rows: repeat(4, 1fr); height: 100%; width: 100%;">
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="1" class="pickedOrder">
                             <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
