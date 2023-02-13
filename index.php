@@ -281,6 +281,23 @@
                     </div>
                 </div>
                 <input name="pieceData" type="hidden" id="pieceData" value="">
+                <!--Left Community-->
+                <div class="block">
+                    <strong >Community</strong>
+                    <p>Did It leave the community durring Auto</p>
+                    <div class="grid" style="grid-template-columns: repeat(2, 1fr); height: 100%; width: 100%;">
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="community" value="stay">
+                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Stayed</strong>
+                        </label>
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="community" value="left">
+                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Left</strong>
+                        </label>
+                    </div>
+                </div>
                 <!--Charge Station-->
                 <div class="block">
                     <strong >Charge Station</strong>
@@ -305,23 +322,6 @@
                             <input type="radio" name="chargeAuto" value="enable">
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/enabledIcon.svg" class="blank" style="width: auto; height: 150%;">
-                        </label>
-                    </div>
-                </div>
-                <!--Left Community-->
-                <div class="block">
-                    <strong >Community</strong>
-                    <p>Did It leave the community durring Auto</p>
-                    <div class="grid" style="grid-template-columns: repeat(2, 1fr); height: 100%; width: 100%;">
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="community" value="stay">
-                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Stayed</strong>
-                        </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="community" value="left">
-                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Left</strong>
                         </label>
                     </div>
                 </div>
@@ -451,40 +451,13 @@
                     </div>
                 </div>
                 <!--Charge Time-->
-                <div class="block" style="grid-column: 1/3;">
+                <div class="block" style="grid-column: 2/3; grid-row: 4/6;">
                     <strong >Charge Timer</strong>
                     <p>Start when the bot first touches the Charging Station. Stop when the bot stops moving</p>
-                    <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
+                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); height: 100%; width: 100%;">
+                        <input class="block" id="timerValue" name="timerValue" style="font-size: medium; margin-top: 5%; grid-column: 1/3;" placeholder="Charge Time"></input>
                         <button class="block"id="timerStart" style="background-color: #16478e; color: white; margin-top: 10%;" >Start Timer</button>
                         <button class="block"id="timerEnd" style="background-color: gray; color: white; margin-top: 10%;" disabled>Stop Timer</button>
-                        <input class="block" id="timerValue" name="timerValue" style="grid-column: 3/5; font-size: medium; margin-top: 5%;" placeholder="Charge Time"></input>
-                    </div>
-                </div>
-                <!--Charge Station-->
-                <div class="block">
-                    <strong >Charge Station</strong>
-                    <p>No Attempt - Failed - Docked - Enabled</p>
-                    <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="chargeTele" value="noattempt"> 
-                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <img src="Icons/noattemptIcon.svg" class="blank" style="width: auto; height: 150%;">
-                        </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="chargeTele" value="fail">
-                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <img src="Icons/failedIcon.svg" class="blank" style="width: auto; height: 150%;">
-                        </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="chargeTele" value="dock">
-                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <img src="Icons/dockedIcon.svg" class="blank" style="width: auto; height: 150%;">
-                        </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="chargeTele" value="enable">
-                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <img src="Icons/enabledIcon.svg" class="blank" style="width: auto; height: 150%;">
-                        </label>
                     </div>
                 </div>
                 <!--Total Charge Robots-->
@@ -511,6 +484,33 @@
                             <input type="radio" name="chargeTotal" value="3">
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">3</strong>
+                        </label>
+                    </div>
+                </div>
+                <!--Charge Station-->
+                <div class="block">
+                    <strong >Charge Station</strong>
+                    <p>No Attempt - Failed - Docked - Enabled</p>
+                    <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="chargeTele" value="noattempt"> 
+                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <img src="Icons/noattemptIcon.svg" class="blank" style="width: auto; height: 150%;">
+                        </label>
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="chargeTele" value="fail">
+                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <img src="Icons/failedIcon.svg" class="blank" style="width: auto; height: 150%;">
+                        </label>
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="chargeTele" value="dock">
+                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <img src="Icons/dockedIcon.svg" class="blank" style="width: auto; height: 150%;">
+                        </label>
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="chargeTele" value="enable">
+                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <img src="Icons/enabledIcon.svg" class="blank" style="width: auto; height: 150%;">
                         </label>
                     </div>
                 </div>
@@ -567,7 +567,7 @@
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
                         <label class="radio block" id="defenseSpeed3" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="defenseSpeed" value="3" checked> 
+                            <input type="radio" name="defenseSpeed" value="3"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
@@ -598,7 +598,7 @@
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
                         <label class="radio block" id="defenseDriver3" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="defenseDriver" value="3" checked> 
+                            <input type="radio" name="defenseDriver" value="3"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
@@ -685,6 +685,7 @@
 
     defenseSpeed1.style.backgroundColor = "#16478e";
     defenseSpeed2.style.backgroundColor = "#16478e";
+    defenseSpeed3.style.backgroundColor = "#16478e";
 
     // Driver Rating Stars
     const inputsR = document.querySelectorAll('input[name="defenseDriver"]');
@@ -728,6 +729,8 @@
 
     defenseDriver1.style.backgroundColor = "#16478e";
     defenseDriver2.style.backgroundColor = "#16478e";
+    defenseDriver3.style.backgroundColor = "#16478e";
+
     
 
 // Selection Order
