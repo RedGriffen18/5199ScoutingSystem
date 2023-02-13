@@ -524,7 +524,7 @@
                 <div class="block" style="grid-column: 1/3;">
                     <strong >Defense Locations</strong>
                     <div class="grid" style="grid-template-columns: repeat(5, 1fr); height: 100%; width: 100%;">
-                    <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="center" class="defenseLocation">
                             <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Center Field</strong>
