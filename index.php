@@ -82,8 +82,8 @@
                 <div class="block" style="grid-row: 4/6; grid-column: 1/3; height: 100%; padding: 0; margin: 0; max-width: fit-content;">
                     <strong>Starting Lane and Starting Piece Selection</strong>
                     <p>Select one of the lanes and click to change starting piece Icons</p>
-                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; height: 95%;">
-                        <img src="Icons/fieldIcon.png" class="block" style="padding: 0; border-radius: 0; grid-column: 1/3; grid-row: 1/3; height: 100%; width: auto;">
+                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; height: 90%;">
+                        <img src="Icons/fieldIcon.png" class="block" style="padding: 0; border-radius: 0; grid-column: 1/3; grid-row: 1/3; height: 100%; width: auto; border-radius: 20px;">
                         <!--Starting Lane-->
                         <div class="block" style="background: none; padding: 0; height: 75%; width: 32.5%; grid-column: 1; grid-row: 1/3; margin-left: 55%;">
                             <div class="grid" style="grid-template-rows: repeat(3, 1fr); grid-template-columns: repeat(1, 1fr);">
@@ -136,7 +136,7 @@
                 <!--Grid Selector-->
                 <div class="block" style="grid-column: 1/3; grid-row: 2/4; padding: 0; width: auto; max-width: 80%; max-height: 100%";>
                     <strong>Grid Placement Selection</strong>
-                    <p>Select the position that the robot scores a game piece during Auton</p>
+                    <p>Select the position that the robot scores a game piece during Autonomous</p>
                     <div class="grid" style="grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, 1fr); width: fit-content; height: 100%;">
                         <img src="Icons/gridIcon.png" class="block" style="grid-row: 1/4; grid-column: 1/10; width: 100%; padding: 0; height: 100%;">
 
@@ -310,7 +310,8 @@
                 </div>
                 <!--Left Community-->
                 <div class="block">
-                    <strong >Left Community?</strong>
+                    <strong >Community</strong>
+                    <p>Did It leave the community durring Auto</p>
                     <div class="grid" style="grid-template-columns: repeat(2, 1fr); height: 100%; width: 100%;">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="community" value="stay">
@@ -332,7 +333,7 @@
                 <h1 class="block" style="width: 75%; grid-column: 1/3; grid-row: 1/2;"><strong>Teleoperated</strong></h1>
                 <div class="block" style="grid-column: 1/3; grid-row: 2/4; padding: 0; width: auto; max-width: 80%; max-height: 100%";>
                 <strong>Grid Placement Selection</strong>
-                <p>Select the position that the robot scores a game piece during Teleop</p>    
+                <p>Select the position that the robot scores a game piece during Teleoperated</p>    
                 <div class="grid" style="grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, 1fr); width: fit-content; height: 100%;">
                         <img src="Icons/gridIcon.png" class="block" style="grid-row: 1/4; grid-column: 1/10; width: 100%; padding: 0; height: 100%;">
                         
@@ -523,7 +524,7 @@
                 <div class="block" style="grid-column: 1/3;">
                     <strong >Defense Locations</strong>
                     <div class="grid" style="grid-template-columns: repeat(5, 1fr); height: 100%; width: 100%;">
-                        <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
+                    <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="center" class="defenseLocation">
                             <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Center Field</strong>
@@ -632,7 +633,7 @@
                 <div class="block" style="height: 15%;">
                     <strong>Are you ready to submit?</strong>
                     <div class="grid" style="grid-template-columns: repeat(1, 1fr); height: 100%; width: 100%;">
-                        <input class="block" type="submit" style="background-color: #16478e; color: white;" value="Submit">
+                        <input class="block" type="submit" style="background-color: #16478e; color: white; font-size: larger;" value="Submit">
                     </div>
                 </div>
             </div>
