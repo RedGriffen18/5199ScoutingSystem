@@ -13,6 +13,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["name"])) {
       $name = $_GET["name"];
       $match = $_GET["match"];
+      $teamColor = $_GET["teamColor"];
       $team = $_GET["team"];
       $starting_piece = $_GET["starting_piece"];
       $starting_lane = $_GET["starting_lane"];
@@ -36,7 +37,7 @@
       $timerValue = $_GET["timerValue"];
 
       $file = fopen("scouting.csv", "a");
-      $data = array($name, $match, $team, $starting_piece, $starting_lane, $starting_piece1, $starting_piece2, $starting_piece3, $starting_piece4, $gridDataAuto, $pieceData, $chargeAuto, $community, $gridDataTele, $timerValue, $chargeTele, $chargeTotal, $defenseLocations, $defenseSpeed, $defenseDriver, $defenseComments, $funnyComments, $breakButton);
+      $data = array($name, $match, $team, $teamColor, $starting_piece, $starting_lane, $starting_piece1, $starting_piece2, $starting_piece3, $starting_piece4, $gridDataAuto, $pieceData, $chargeAuto, $community, $gridDataTele, $timerValue, $chargeTele, $chargeTotal, $defenseLocations, $defenseSpeed, $defenseDriver, $defenseComments, $funnyComments, $breakButton);
       fputcsv($file, $data);
       fclose($file);
       header("Location: index.php#section1");
@@ -57,14 +58,30 @@
     <form class="form">
         <!--Pre-Game-->
         <section class="section" id="section1">
-            <div class="grid" style="grid-template-rows: repeat(5, 1fr); grid-template-columns: repeat(2, 1fr);">
+            <div class="grid" style="grid-template-rows: repeat(5, 1fr); grid-template-columns: repeat(4, 1fr);">
                 <!--Name/Match/Team-->
-                <h1 class="block" style="grid-column: 1/3; grid-row: 1/2;"><strong>Pre-Game</strong></h1>
-                <input class="block" type="text" name="name" placeholder="Scouter Name" style="grid-column: 1/2;">
-                <input class="block" type="number" name="match" autocomplete="off" placeholder="Match Number" style="grid-column: 2/3;">
-                <input class="block" type="number" name="team" autocomplete="off" placeholder="Team Number" style="grid-column: 1/2;">
+                <h1 class="block" style="grid-column: 1/5; grid-row: 1/2;"><strong>Pre-Game</strong></h1>
+                <input class="block" type="text" name="name" placeholder="Scouter Name" style="grid-column: 1/3;">
+                <input class="block" type="number" name="match" autocomplete="off" placeholder="Match Number" style="grid-column: 3/4;">
+                <input class="block" type="number" name="team" autocomplete="off" placeholder="Team Number" style="grid-column: 4/5;">
+                <!--Alliance Color-->
+                <div class="block" style="grid-column: 1/3;">
+                    <strong>Alliance Color</strong>
+                    <div class="grid" style="grid-template-rows: repeat(1, 1fr); grid-template-columns: repeat(2, 1fr);">
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="teamColor" value="red">
+                            <span class="radioPiece" style="background-color: red; border-radius: 20px;"></span>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Red</strong>
+                        </label>
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="teamColor" value="blue">
+                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Blue</strong>
+                        </label>
+                    </div>
+                </div>
                 <!--Starting Piece Selection-->
-                <div class="block">
+                <div class="block" style="grid-column: 3/5;">
                     <strong>Robot Starting Piece</strong>
                     <div class="grid" style="grid-template-rows: repeat(1, 1fr); grid-template-columns: repeat(2, 1fr);">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
@@ -79,7 +96,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="block" style="grid-row: 4/6; grid-column: 1/3; height: 100%; padding: 0; margin: 0; max-width: fit-content;">
+                <div class="block" style="grid-row: 4/6; grid-column: 1/5; height: 100%; padding: 0; margin: 0; max-width: fit-content;">
                     <strong>Starting Lane and Starting Piece Selection</strong>
                     <p>Select one of the lanes and click to change starting piece Icons</p>
                     <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; height: 90%;">
