@@ -554,12 +554,12 @@
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="lane1" class="defenseLocation"> 
                             <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Below Charge</strong>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Lane 1</strong>
                         </label>
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="lane3" class="defenseLocation"> 
                             <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Above Charge</strong>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Lane 3</strong>
                         </label>
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="chase" class="defenseLocation"> 
