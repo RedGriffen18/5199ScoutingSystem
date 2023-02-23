@@ -3,20 +3,27 @@
     padding: 0;
     scroll-behavior: smooth;
     font-family: "Google Sans Text", Arial, Helvetica, sans-serif;
-    
+}
+body {
+    background-color: #0e2d5b;
 }
 .bar {
     height: 10vh;
     bottom: 0;
     position: fixed;
     background: gray;
-    width: 100%;
+    width: 75vh;
+    left: 50%;
+    transform: translate(-50%);
     z-index: 1;
 }
 .form {
     height: 400%;
-    width: 100%;
+    width: 75vh;
+    margin: auto;
     background-color:#16478e;
+    border: none;
+    box-shadow: 0 0 10px rgba(33, 109, 218, 0.5), 0 0 20px rgba(33, 109, 218, 0.3), 0 0 30px rgba(33, 109, 218, 0.2), 0 0 40px rgba(33, 109, 218, 0.1);
 }
 .section {
     height: 88vh;

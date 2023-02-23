@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0">
     <title>2023 - Scouting Form</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="Icons/5199Icon.png">
@@ -96,11 +96,11 @@
                         </label>
                     </div>
                 </div>
-                <div class="block" style="grid-row: 4/6; grid-column: 1/5; height: 100%; padding: 0; margin: 0; max-width: fit-content;">
+                <div class="block" style="grid-row: 4/6; grid-column: 1/5; height: 90%; margin: 0; max-width: fit-content;">
                     <strong>Starting Lane and Starting Piece Selection</strong>
                     <p>Select one of the lanes and click to change starting piece Icons</p>
-                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; height: 90%;">
-                        <img src="Icons/fieldIcon.png" class="block" style="padding: 0; border-radius: 0; grid-column: 1/3; grid-row: 1/3; height: 100%; width: auto; border-radius: 20px;">
+                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; height: 90%; transform: translate(0, 3%);">
+                        <img src="Icons/fieldIcon.png" class="block" style="padding: 0; border-radius: 0; grid-column: 1/3; grid-row: 1/3; height: 100%; width: 100%; border-radius: 20px;">
                         <!--Starting Lane-->
                         <div class="block" style="background: none; padding: 0; height: 75%; width: 32.5%; grid-column: 1; grid-row: 1/3; margin-left: 55%;">
                             <div class="grid" style="grid-template-rows: repeat(3, 1fr); grid-template-columns: repeat(1, 1fr);">
@@ -776,7 +776,7 @@
         }
       });
     });
-
+x
     // Tele Grid
     const gridDataTele = document.querySelector('#gridDataTele');
     const inputsT = document.querySelectorAll('.gridOrderTele');
