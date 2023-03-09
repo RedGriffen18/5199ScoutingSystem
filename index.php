@@ -34,10 +34,11 @@
       $defenseComments = $_GET["defenseComments"];
       $funnyComments = $_GET["funnyComments"];
       $breakButton = $_GET["breakButton"];
+      $tippingButton = $_GET["tippingButton"];
       $timerValue = $_GET["timerValue"];
 
       $file = fopen("scouting.csv", "a");
-      $data = array($name, $match, $team, $teamColor, $starting_piece, $starting_lane, $starting_piece1, $starting_piece2, $starting_piece3, $starting_piece4, $gridDataAuto, $pieceData, $chargeAuto, $community, $gridDataTele, $timerValue, $chargeTele, $chargeTotal, $defenseLocations, $defenseSpeed, $defenseDriver, $defenseComments, $funnyComments, $breakButton);
+      $data = array($name, $match, $team, $teamColor, $starting_piece, $starting_lane, $starting_piece1, $starting_piece2, $starting_piece3, $starting_piece4, $gridDataAuto, $pieceData, $chargeAuto, $community, $gridDataTele, $timerValue, $chargeTele, $chargeTotal, $defenseLocations, $defenseSpeed, $defenseDriver, $defenseComments, $funnyComments, $breakButton, $tippingButton);
       fputcsv($file, $data);
       fclose($file);
       header("Location: index.php#section1");
@@ -67,7 +68,7 @@
                 <!--Alliance Color-->
                 <div class="block" style="grid-column: 1/3;">
                     <strong>Alliance Color</strong>
-                    <div class="grid" style="grid-template-rows: repeat(1, 1fr); grid-template-columns: repeat(2, 1fr);">
+                    <div class="grid" style="grid-template-rows: repeat(1, 1fr); grid-template-columns: repeat(3, 1fr);">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="teamColor" value="red">
                             <span class="radioPiece" style="background-color: #f03431; border-radius: 20px;"></span>
@@ -77,6 +78,11 @@
                             <input type="radio" name="teamColor" value="blue">
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Blue</strong>
+                        </label>
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="teamColor" value="noshow">
+                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">No Show</strong>
                         </label>
                     </div>
                 </div>
@@ -636,11 +642,19 @@
                 <textarea class="block" name="funnyComments" style="height: 70%; grid-column: 2/3;" placeholder="Funny Comments"></textarea>
 
                 <!--Did It Break!?-->
-                <div class="block" style="grid-column: 1/3;">
+                <div class="block" style="grid-column: 1;">
                     <label class="checkbox block" style="background: gray; color: white;">
                         <input type="checkbox" name="breakButton" value="broken">
                         <span class="checkboxPiece" style="background-color: #f03431; border-radius: 20px;"></span>
                         <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Did It Break?</strong>
+                    </label>
+                </div>
+                <!--Tipsy Button-->
+                <div class="block" style="grid-column: 2;">
+                    <label class="checkbox block" style="background: gray; color: white;">
+                        <input type="checkbox" name="tippingButton" value="tipping">
+                        <span class="checkboxPiece" style="background-color: #f03431; border-radius: 20px;"></span>
+                        <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Is the Bot Tipping?</strong>
                     </label>
                 </div>
             </div>
