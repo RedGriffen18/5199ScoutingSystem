@@ -63,8 +63,8 @@
                 <!--Name/Match/Team-->
                 <h1 class="block" style="grid-column: 1/5; grid-row: 1/2;"><strong>Pre-Game</strong></h1>
                 <input class="block" type="text" name="name" placeholder="Scouter Name" style="grid-column: 1/3;">
-                <input class="block" type="number" name="match" autocomplete="off" placeholder="Match Number" style="grid-column: 3/4;">
-                <input class="block" type="number" name="team" autocomplete="off" placeholder="Team Number" style="grid-column: 4/5;">
+                <input class="block" type="number" name="match" autocomplete="off" placeholder="Match #" style="grid-column: 3/4;">
+                <input class="block" type="number" name="team" autocomplete="off" placeholder="Team #" style="grid-column: 4/5;">
                 <!--Alliance Color-->
                 <div class="block" style="grid-column: 1/3;">
                     <strong>Alliance Color</strong>
@@ -82,14 +82,14 @@
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="teamColor" value="noshow">
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">No Show</strong>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">N/A</strong>
                         </label>
                     </div>
                 </div>
                 <!--Starting Piece Selection-->
                 <div class="block" style="grid-column: 3/5;">
                     <strong>Robot Starting Piece</strong>
-                    <div class="grid" style="grid-template-rows: repeat(1, 1fr); grid-template-columns: repeat(2, 1fr);">
+                    <div class="grid" style="grid-template-rows: repeat(1, 1fr); grid-template-columns: repeat(3, 1fr);">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="starting_piece" value="cone"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
@@ -100,13 +100,18 @@
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/cubeIcon.svg" class="blank" style="width: auto; height: 100%;">
                         </label>
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="starting_piece" value="none"> 
+                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">None</strong>
+                        </label>
                     </div>
                 </div>
                 <div class="block" style="grid-row: 4/6; grid-column: 1/5; height: 100%; padding: 0; margin: 0; max-width: fit-content;">
                     <strong>Starting Lane and Starting Piece Selection</strong>
                     <p>Select one of the lanes and click to change starting piece Icons</p>
                     <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; height: 90%;">
-                        <img id="field-icon" src="Icons/fieldIcon.png" class="block" style="padding: 0; border-radius: 0; grid-column: 1/3; grid-row: 1/3; height: 100%; width: auto; border-radius: 20px;">
+                        <img id="field-icon" src="Icons/fieldIcon.png" class="block" style="padding: 0; grid-column: 1/3; grid-row: 1/3; max-height: 100%; width: 100%;">
                         <!--Starting Lane-->
                         <div id="FieldDiv1" class="block" style="background: none; padding: 0; height: 75%; width: 32.5%; grid-column: 1; grid-row: 1/3; margin-left: 55%;">
                             <div class="grid" style="grid-template-rows: repeat(3, 1fr); grid-template-columns: repeat(1, 1fr);">
@@ -511,7 +516,7 @@
                     </div>
                 </div>
                 <!--Charge Station-->
-                <div class="block">
+                <div class="block" style="margin-top: 5%;">
                     <strong >Charge Station</strong>
                     <p>No Attempt - Failed - Docked - Enabled</p>
                     <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
@@ -535,6 +540,11 @@
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/enabledIcon.svg" class="blank" style="width: auto; height: 150%;">
                         </label>
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%; grid-column: 1/5;">
+                            <input type="radio" name="chargeTele" value="park">
+                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Parked</strong>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -550,22 +560,22 @@
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="center" class="defenseLocation">
                             <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Center Field</strong>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Center</strong>
                         </label>
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="hpstation" class="defenseLocation">
                             <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">HP Station</strong>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">HP</strong>
                         </label>
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="lane1" class="defenseLocation"> 
                             <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Lane 1</strong>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Lane1</strong>
                         </label>
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="lane3" class="defenseLocation"> 
                             <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Lane 3</strong>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Lane3</strong>
                         </label>
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="chase" class="defenseLocation"> 
@@ -646,7 +656,7 @@
                     <label class="checkbox block" style="background: gray; color: white;">
                         <input type="checkbox" name="breakButton" value="broken">
                         <span class="checkboxPiece" style="background-color: #f03431; border-radius: 20px;"></span>
-                        <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Did It Break?</strong>
+                        <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Break?</strong>
                     </label>
                 </div>
                 <!--Tipsy Button-->
@@ -654,7 +664,7 @@
                     <label class="checkbox block" style="background: gray; color: white;">
                         <input type="checkbox" name="tippingButton" value="tipping">
                         <span class="checkboxPiece" style="background-color: #f03431; border-radius: 20px;"></span>
-                        <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Is the Bot Tipping?</strong>
+                        <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Tipping?</strong>
                     </label>
                 </div>
             </div>
