@@ -13,8 +13,8 @@
     if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["name"])) {
       $name = $_GET["name"];
       $match = $_GET["match"];
-      $teamColor = $_GET["teamColor"];
-      $team = $_GET["team"];
+      $noshow = $_GET["noshow"];
+      $scouter = $_GET["scouter"];
       $starting_piece = $_GET["starting_piece"];
       $starting_lane = $_GET["starting_lane"];
       $starting_piece1 = $_GET["starting_piece1"];
@@ -38,13 +38,14 @@
       $timerValue = $_GET["timerValue"];
 
       $file = fopen("scouting.csv", "a");
-      $data = array($name, $match, $team, $teamColor, $starting_piece, $starting_lane, $starting_piece1, $starting_piece2, $starting_piece3, $starting_piece4, $gridDataAuto, $pieceData, $chargeAuto, $community, $gridDataTele, $timerValue, $chargeTele, $chargeTotal, $defenseLocations, $defenseSpeed, $defenseDriver, $defenseComments, $funnyComments, $breakButton, $tippingButton);
+      $data = array($name, $match, $scouter, $noshow, $starting_piece, $starting_lane, $starting_piece1, $starting_piece2, $starting_piece3, $starting_piece4, $gridDataAuto, $pieceData, $chargeAuto, $community, $gridDataTele, $timerValue, $chargeTele, $chargeTotal, $defenseLocations, $defenseSpeed, $defenseDriver, $defenseComments, $funnyComments, $breakButton, $tippingButton);
       fputcsv($file, $data);
       fclose($file);
       header("Location: index.php#section1");
       exit();
     }
 ?>
+    <header id="header"></header>
     <!--Nav Bar-->
     <div class="bar">
         <div class="grid" style="grid-template-columns: repeat(5, 1fr);">
@@ -64,47 +65,49 @@
                 <h1 class="block" style="grid-column: 1/5; grid-row: 1/2;"><strong>Pre-Game</strong></h1>
                 <div class="block" style="grid-column: 1/5; grid-row: 2/4;">
                     <div class="grid" style="grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(3, 1fr);">
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" style="background: gray; color: white; margin: 5%;">
                             <input type="radio" name="scouter" value="r1">
                             <span class="radioPiece" style="background-color: #f03431; border-radius: 20px;"></span>
                             <strong id="r1" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Red&nbsp;1</strong>
                         </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" style="background: gray; color: white; margin: 5%;">
                             <input type="radio" name="scouter" value="r2">
                             <span class="radioPiece" style="background-color: #f03431; border-radius: 20px;"></span>
                             <strong id="r2" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Red&nbsp;2</strong>
                         </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" style="background: gray; color: white; margin: 5%;">
                             <input type="radio" name="scouter" value="r3">
                             <span class="radioPiece" style="background-color: #f03431; border-radius: 20px;"></span>
                             <strong id="r3" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Red&nbsp;3</strong>
                         </label>
-                        <input class="block" type="text" name="name" placeholder="Name" style="grid-column: 4/6;">
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <input class="block" type="text" name="name" placeholder="Name" style="grid-column: 4/6; padding: 5%;">
+                        <label class="radio block" style="background: gray; color: white; margin: 5%;">
                             <input type="radio" name="scouter" value="b1">
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <strong id="b1" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Blue&nbsp;1</strong>
                         </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" style="background: gray; color: white; margin: 5%;">
                             <input type="radio" name="scouter" value="b2">
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <strong id="b2" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Blue&nbsp;2</strong>
                         </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block" style="background: gray; color: white; margin: 5%;">
                             <input type="radio" name="scouter" value="b3">
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <strong id="b3" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Blue&nbsp;3</strong>
                         </label>
-                        <input class="block" type="number" value="" id="match" name="match" autocomplete="off" placeholder="Match #" style="grid-column: 4/6;" pattern="[0-9]*">
-                        <label class="checkbox block" style="background: gray; color: white; grid-column: 1/6;">
+                        <input class="block" type="number" value="" id="match" name="match" autocomplete="off" placeholder="Match #" style="grid-column: 4/6; padding: 5%;" min="0" pattern="[0-9]*">
+                        <label class="checkbox block" style="background: gray; color: white; grid-column: 1/4;">
                             <input type="checkbox" name="noshow" value="noshow">
                             <span class="checkboxPiece" style="background-color: black; border-radius: 20px;"></span>
                             <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">No Show</strong>
                         </label>
+                        <input class="block" type="hidden" value="" id="team" name="team" autocomplete="off" placeholder="Team #" style="grid-column: 4/6; padding: 5%;" min="0" pattern="[0-9]*" >
+
                     </div>
                 </div>
                 <!--Starting Piece Selection-->
-                <div class="block" style="grid-row: 4/6; grid-column: 4/5;">
+                <div class="block" style="grid-row: 4/6;">
                     <strong>Robot Starting Piece</strong>
                     <div class="grid" style="grid-template-rows: repeat(1, 1fr); grid-template-rows: repeat(3, 1fr);">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
@@ -124,13 +127,13 @@
                         </label>
                     </div>
                 </div>
-                <div class="block" style="grid-row: 4/6; grid-column: 1/4; height: 100%; padding: 0; margin: 0; max-width: fit-content;">
+                <div class="block" style="grid-row: 4/6; grid-column: 1/4; max-height: 100%; padding: 0; margin: 0; max-width: fit-content;">
                     <strong>Starting Lane and Starting Piece Selection</strong>
                     <p>Select one of the lanes and click to change starting piece Icons</p>
-                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; max-height: 80%;">
-                        <img id="field-icon" src="" class="block" style="padding: 0; grid-column: 1/3; grid-row: 1/3; max-height: 100%; width: 100%;">
+                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; max-height: 100%;">
+                        <img id="field-icon" src="Icons/5199Icon.png" class="block" style="padding: 0; grid-column: 1/3; grid-row: 1/3; height: auto; max-height: 100%; width: 100%;">
                         <!--Starting Lane-->
-                        <div id="FieldDiv1" class="block" style="background: none; padding: 0; height: 75%; width: 32.5%; grid-column: 1; grid-row: 1/3; margin-left: 55%;">
+                        <div id="FieldDiv1" class="block" style="background: none; padding: 0; height: 0%; width: 32.5%; grid-column: 1; grid-row: 1/3; margin-left: 55%;">
                             <div class="grid" style="grid-template-rows: repeat(3, 1fr); grid-template-columns: repeat(1, 1fr);">
                                 <label class="radio">
                                     <input type="radio" name="starting_lane" value="lane1"> 
@@ -147,7 +150,7 @@
                             </div>
                         </div>
                         <!--Starting Pieces-->
-                        <div id="FieldDiv2" class="block" style="background: none; padding: 0; height: 75%; width: 25%; grid-column: 2; grid-row: 1/3; margin-left: 54%;">
+                        <div id="FieldDiv2" class="block" style="background: none; padding: 0; height: 0%; width: 25%; grid-column: 2; grid-row: 1/3; margin-left: 54%;">
                             <div class="grid" style="grid-template-rows: repeat(4, 1fr); grid-template-columns: repeat(1, 1fr);">
                                 <label class="checkbox" style="width: 100%; height: 100%;">
                                     <input type="checkbox" name="starting_piece1" id="starting_piece1" value="cone"> 
@@ -332,35 +335,30 @@
                     </div>
                 </div>
             <!--Auton Pickup-->
-                <div class="block">
+                <div class="block" style="grid-row: 4/6;">
                     <strong>Auton Pickup Pieces</strong>
                     <p>Select the pieces that the robot picked up durring auton</p>
-                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; max-height: 100%; height: fit-content;">
-                        <img id="field-icon2" src="" class="block" style="padding: 0; grid-column: 1/3; grid-row: 1/3; max-height: 100%; width: 100%;">
-                        <div id="FieldDiv22" class="block" style="background: none; padding: 0; height: 75%; width: 25%; grid-column: 2; grid-row: 1/3; margin-left: 54%;">
-                            <div class="grid" style="grid-template-rows: repeat(4, 1fr); grid-template-columns: repeat(1, 1fr);">
-                                <label class="checkbox" style="width: 100%; height: 100%;">
-                                    <input type="checkbox" name="starting_piece1" value="starting_piece1"> 
-                                    <img src="Icons/cubeIcon.svg" class="blank" id="blank1">
-                                    <img src="Icons/checkBox.svg" class="checkboxPiece" style="background-color: transparent;">
-                                </label>
-                                <label class="checkbox" style="width: 100%; height: 100%;">
-                                    <input type="checkbox" name="starting_piece2" value="starting_piece2"> 
-                                    <img src="Icons/cubeIcon.svg" class="blank" id="blank2">
-                                    <img src="Icons/checkBox.svg" class="checkboxPiece" style="background-color: transparent;">
-                                </label>
-                                <label class="checkbox" style="width: 100%; height: 100%;">
-                                    <input type="checkbox" name="starting_piece3" value="starting_piece3"> 
-                                    <img src="Icons/cubeIcon.svg" class="blank" id="blank3">
-                                    <img src="Icons/checkBox.svg" class="checkboxPiece" style="background-color: transparent;">
-                                </label>
-                                <label class="checkbox" style="width: 100%; height: 100%;">
-                                    <input type="checkbox" name="starting_piece4" value="starting_piece4"> 
-                                    <img src="Icons/cubeIcon.svg" class="blank" id="blank4">
-                                    <img src="Icons/checkBox.svg" class="checkboxPiece" style="background-color: transparent;">
-                                </label>
-                            </div>
-                        </div>
+                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(1, 1fr); width: 100%; max-height: 100%; height: fit-content;">
+                        <label class="checkbox block" style="background: gray; color: white; margin-top: 5%;">
+                            <input type="checkbox" name="starting_piece1" value="starting_piece1"> 
+                            <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <img src="Icons/cubeIcon.svg" class="blank" id="blank1">
+                        </label>
+                        <label class="checkbox block" style="background: gray; color: white; margin-top: 5%;">
+                            <input type="checkbox" name="starting_piece2" value="starting_piece2"> 
+                            <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <img src="Icons/cubeIcon.svg" class="blank" id="blank2">
+                        </label>
+                        <label class="checkbox block" style="background: gray; color: white; margin-top: 5%;">
+                            <input type="checkbox" name="starting_piece3" value="starting_piece3"> 
+                            <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <img src="Icons/cubeIcon.svg" class="blank" id="blank3">
+                        </label>
+                        <label class="checkbox block" style="background: gray; color: white; margin-top: 5%;">
+                            <input type="checkbox" name="starting_piece4" value="starting_piece4"> 
+                            <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <img src="Icons/cubeIcon.svg" class="blank" id="blank4">
+                        </label>
                     </div>
                 </div>
         </section>
@@ -492,7 +490,7 @@
                     <strong >Charge Timer</strong>
                     <p>Start when the bot first touches the Charging Station. Stop when the bot stops moving</p>
                     <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); height: 100%; width: 100%;">
-                        <input class="block" id="timerValue" name="timerValue" style="font-size: medium; margin-top: 5%; grid-column: 1/3;" placeholder="Charge Time"></input>
+                        <input class="block" id="timerValue" name="timerValue" style="font-size: medium; margin-top: 5%; grid-column: 1/3;" placeholder="Charge Time" pattern="[0-9]*"></input>
                         <button class="block"id="timerStart" style="background-color: #16478e; color: white; margin-top: 10%;" >Start Timer</button>
                         <button class="block"id="timerEnd" style="background-color: gray; color: white; margin-top: 10%;" disabled>Stop Timer</button>
                     </div>
@@ -597,7 +595,7 @@
                 <!--Speed Rating-->
                 <div class="block">
                     <strong >Bot Speed Rating</strong>
-                    <div class="grid" style="grid-template-columns: repeat(5, 1fr); height: 100%; width: 100%;">
+                    <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
                         <label class="radio block" id="defenseSpeed1" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseSpeed" value="1"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
@@ -618,17 +616,12 @@
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" id="defenseSpeed5" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="defenseSpeed" value="5"> 
-                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
-                        </label>
                     </div>
                 </div>
                 <!--Defense Driver Rating-->
                 <div class="block">
                     <strong >Driver Rating</strong>
-                    <div class="grid" style="grid-template-columns: repeat(5, 1fr); height: 100%; width: 100%;">
+                    <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
                         <label class="radio block" id="defenseDriver1" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseDriver" value="1"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
@@ -646,11 +639,6 @@
                         </label>
                         <label class="radio block" id="defenseDriver4" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseDriver" value="4"> 
-                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
-                        </label>
-                        <label class="radio block" id="defenseDriver5" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="defenseDriver" value="5"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
@@ -692,7 +680,7 @@
 </body>
 </html>
 <script>
-// Star Propper highlighting
+// Star highlighting
     //Speed Rating Stars
     const inputsS = document.querySelectorAll('input[name="defenseSpeed"]');
     const defenseSpeed1 = document.getElementById("defenseSpeed1");
@@ -733,10 +721,6 @@
       });
     });
 
-    defenseSpeed1.style.backgroundColor = "#16478e";
-    defenseSpeed2.style.backgroundColor = "#16478e";
-    defenseSpeed3.style.backgroundColor = "#16478e";
-
     // Driver Rating Stars
     const inputsR = document.querySelectorAll('input[name="defenseDriver"]');
     const defenseDriver1 = document.getElementById("defenseDriver1");
@@ -776,11 +760,6 @@
         }
       });
     });
-
-    defenseDriver1.style.backgroundColor = "#16478e";
-    defenseDriver2.style.backgroundColor = "#16478e";
-    defenseDriver3.style.backgroundColor = "#16478e";
-
     
 
 // Selection Order
@@ -788,52 +767,52 @@
     const pieceData = document.querySelector('#pieceData');
     const inputsP = document.querySelectorAll('.pickedOrder');
     inputsP.forEach(input => {
-      input.addEventListener('change', function() {
-        if (this.checked) {
-          pieceData.value += `.${this.value}`;
-        } else {
-          pieceData.value = pieceData.value.replace(`.${this.value}`, '');
-        }
-      });
+        input.addEventListener('change', function() {
+            if (this.checked) {
+                pieceData.value += `.${this.value}`;
+            } else {
+                pieceData.value = pieceData.value.replace(`.${this.value}`, '');
+            }
+        });
     });
 
     // Auto Grid
     const gridDataAuto = document.querySelector('#gridDataAuto');
     const inputsA = document.querySelectorAll('.gridOrderAuto');
     inputsA.forEach(input => {
-      input.addEventListener('change', function() {
-        if (this.checked) {
-          gridDataAuto.value += `.${this.value}`;
-        } else {
-          gridDataAuto.value = gridDataAuto.value.replace(`.${this.value}`, '');
-        }
-      });
+        input.addEventListener('change', function() {
+            if (this.checked) {
+              gridDataAuto.value += `.${this.value}`;
+            } else {
+              gridDataAuto.value = gridDataAuto.value.replace(`.${this.value}`, '');
+            }
+        });
     });
 
     // Tele Grid
     const gridDataTele = document.querySelector('#gridDataTele');
     const inputsT = document.querySelectorAll('.gridOrderTele');
     inputsT.forEach(input => {
-      input.addEventListener('change', function() {
-        if (this.checked) {
-          gridDataTele.value += `.${this.value}`;
-        } else {
-          gridDataTele.value = gridDataTele.value.replace(`.${this.value}`, '');
-        }
-      });
+        input.addEventListener('change', function() {
+            if (this.checked) {
+              gridDataTele.value += `.${this.value}`;
+            } else {
+              gridDataTele.value = gridDataTele.value.replace(`.${this.value}`, '');
+            }
+        });
     });
 
     // Defence Locations
     const defenseLocations = document.querySelector('#defenseLocations');
     const inputsD = document.querySelectorAll('.defenseLocation');
     inputsD.forEach(input => {
-      input.addEventListener('change', function() {
-        if (this.checked) {
-          defenseLocations.value += `.${this.value}`;
-        } else {
-          defenseLocations.value = defenseLocations.value.replace(`.${this.value}`, '');
-        }
-      });
+        input.addEventListener('change', function() {
+            if (this.checked) {
+            defenseLocations.value += `.${this.value}`;
+            } else {
+            defenseLocations.value = defenseLocations.value.replace(`.${this.value}`, '');
+            }
+        });
     });
 
 // Charge Station Timer
@@ -867,155 +846,197 @@
         timerEnd.disabled = true;
     });
 
-    // Field Swap 
+// Field Swap
+    var teamColorInputs = document.querySelectorAll('input[name="scouter"]');
+    var teamColorBlock1 = document.getElementById("FieldDiv1");
+    var teamColorBlock2 = document.getElementById("FieldDiv2");
+
+
+    teamColorInputs.forEach(function(input) {
+        input.addEventListener('change', function() {
+            var teamColorInput = document.querySelector('input[name="scouter"]:checked');
+            var teamColorValue = teamColorInput.value;
+            var fieldIcon = document.getElementById("field-icon");
+    // Red
+            if (teamColorValue === "r1" || teamColorValue === "r2" || teamColorValue === "r3") {
+                fieldIcon.src = "Icons/fieldIconRed.png";
+                teamColorBlock2.style.height = "75%";
+                teamColorBlock1.style.height = "75%";
+                teamColorBlock1.style.gridColumn = "2";
+                teamColorBlock1.style.marginLeft = "13%";
+                teamColorBlock2.style.gridColumn = "1";
+                teamColorBlock2.style.marginLeft = "21%";
+    // Blue
+            } else if (teamColorValue === "b1" || teamColorValue === "b2" || teamColorValue === "b3") {
+                fieldIcon.src = "Icons/fieldIcon.png";
+                teamColorBlock2.style.height = "75%";
+                teamColorBlock1.style.height = "75%";
+                teamColorBlock2.style.gridColumn = "2";
+                teamColorBlock2.style.marginLeft = "54%";
+                teamColorBlock1.style.gridColumn = "1";
+                teamColorBlock1.style.marginLeft = "55%";
+            }
+        });
+    });
+
+// API - Team Numbers per Match
+    const scouterInputs = document.getElementsByName('scouter');
+    const matchInput = document.getElementsByName('match')[0];
+    const teamInput = document.getElementsByName('team')[0];
+
+    scouterInputs.forEach(input => {
+        input.addEventListener("input", getTeams);
+    });
+    scouterInputs.forEach(input => {
+        input.addEventListener("input", getHeader);
+    });
+    matchInput.addEventListener("input", () => {
+        setTimeout(getHeader, 500);
+    });
+
+    teamInput.addEventListener("input", getHeader); 
+    matchInput.addEventListener("input", getTeams); 
     
-var teamColorInputs = document.querySelectorAll('input[name="scouter"]');
-var teamColorBlock1 = document.getElementById("FieldDiv1");
-var teamColorBlock2 = document.getElementById("FieldDiv2");
-var teamColorBlock22 = document.getElementById("FieldDiv22");
+    
+    function getTeams() {
+        const apiKey = "WK7thdZDs2t0MyZEfmpaAdgUqpBn0CNsPmE4JyzigzpdYZz0EudEr7Ie9HI3Obxe";
+        const eventKey = "2023azgl";
+        const matchNumber = parseInt(document.getElementsByName('match')[0].value);
 
+        const endpoint = `https://www.thebluealliance.com/api/v3/event/${eventKey}/matches/simple`;
 
-teamColorInputs.forEach(function(input) {
-  input.addEventListener('change', function() {
-    var teamColorInput = document.querySelector('input[name="scouter"]:checked');
-    var teamColorValue = teamColorInput.value;
+        fetch(endpoint, { headers: { "X-TBA-Auth-Key": apiKey } })
+        .then(response => response.json())
+        .then(matches => {
+            const match = matches.find(match => match.match_number === matchNumber && match.comp_level === "qm");
+            if (match) {
+            const teamNumbers = [match.alliances.blue.team_keys, match.alliances.red.team_keys]
+            .flat() .map(teamKey => teamKey.replace(/^frc/, ''));
+            const [b1, b2, b3, r1, r2, r3] = teamNumbers;
+            console.log(`Teams for match ${matchNumber}:${b1},${b2},${b3},${r1},${r2},${r3}`);
+            document.getElementById('b1').textContent = b1;
+            document.getElementById('b2').textContent = b2;
+            document.getElementById('b3').textContent = b3;
+            document.getElementById('r1').textContent = r1;
+            document.getElementById('r2').textContent = r2;
+            document.getElementById('r3').textContent = r3;
+            document.getElementById('team').type = 'hidden';
+            document.getElementById('team').value = '';
+        } else {
+            console.log(`Match ${matchNumber} not found or not a qualification match`);
+            document.getElementById('b1').textContent = "Blue\u00A01";
+            document.getElementById('b2').textContent = "Blue\u00A02";
+            document.getElementById('b3').textContent = "Blue\u00A03";
+            document.getElementById('r1').textContent = "Red\u00A01";
+            document.getElementById('r2').textContent = "Red\u00A02";
+            document.getElementById('r3').textContent = "Red\u00A03";
+            document.getElementById('team').type = 'number';
 
-    if (teamColorValue === "r1" || teamColorValue === "r2" || teamColorValue === "r3") {
-      teamColorBlock1.style.gridColumn = "2";
-      teamColorBlock1.style.marginLeft = "13%";
-    } else {
-      teamColorBlock1.style.gridColumn = "1";
-      teamColorBlock1.style.marginLeft = "55%";
+            }
+        })
+        .catch(error => console.error(error));
     }
 
-    if (teamColorValue === "r1" || teamColorValue === "r2" || teamColorValue === "r3") {
-      teamColorBlock2.style.gridColumn = "1";
-      teamColorBlock2.style.marginLeft = "21%";
-    } else {
-      teamColorBlock2.style.gridColumn = "2";
-      teamColorBlock2.style.marginLeft = "54%";
+// Header Function
+    function getHeader() {
+        scouterInputs.forEach(input => {
+            if (input.checked) {
+                const value = input.value;
+                const MatchValue = document.getElementById('match').value;
+                const TeamValue = document.getElementById('team').value;
+                const headerValues = {
+                   'b1': 'Blue 1',
+                   'b2': 'Blue 2',
+                   'b3': 'Blue 3',
+                   'r1': 'Red 1',
+                   'r2': 'Red 2',
+                   'r3': 'Red 3',
+                };
+                if (TeamValue > 0 && headerValues[value]) {
+                   document.getElementById('header').textContent = headerValues[value] + ": " + TeamValue;
+                }  else if (headerValues[value]) {
+                   document.getElementById('header').textContent = headerValues[value] + ": " + document.getElementById(value).textContent;
+                }  else {
+                    document.getElementById('header').textContent = headerValues[value] + ":"
+                }
+            }
+        });
     }
 
-    if (teamColorValue === "r1" || teamColorValue === "r2" || teamColorValue === "r3") {
-      teamColorBlock22.style.gridColumn = "1";
-      teamColorBlock22.style.marginLeft = "21%";
-    } else {
-      teamColorBlock22.style.gridColumn = "2";
-      teamColorBlock22.style.marginLeft = "54%";
-    }
+// Default Images for Pieces Picked
+    const checkbox1 = document.getElementById('starting_piece1');
+    const image1 = document.getElementById('blank1');
+    
+    checkbox1.addEventListener('change', function() {
+        if (checkbox1.checked) {
+        image1.src = 'Icons/coneIcon.svg';
+        } else {
+        image1.src = 'icons/cubeIcon.svg';
+        }
+    });
+    const checkbox2 = document.getElementById('starting_piece2');
+    const image2 = document.getElementById('blank2');
+    
+    checkbox2.addEventListener('change', function() {
+        if (checkbox2.checked) {
+        image2.src = 'Icons/coneIcon.svg';
+        } else {
+        image2.src = 'icons/cubeIcon.svg';
+        }
+    });
+    const checkbox3 = document.getElementById('starting_piece3');
+    const image3 = document.getElementById('blank3');
+    
+    checkbox3.addEventListener('change', function() {
+        if (checkbox3.checked) {
+        image3.src = 'Icons/coneIcon.svg';
+        } else {
+        image3.src = 'icons/cubeIcon.svg';
+        }
+    });
+    const checkbox4 = document.getElementById('starting_piece4');
+    const image4 = document.getElementById('blank4');
+    
+    checkbox4.addEventListener('change', function() {
+        if (checkbox4.checked) {
+        image4.src = 'Icons/coneIcon.svg';
+        } else {
+        image4.src = 'icons/cubeIcon.svg';
+        }
+    });
 
-    var fieldIcon = document.getElementById("field-icon");
-    if (teamColorValue === "r1" || teamColorValue === "r2" || teamColorValue === "r3") {
-      fieldIcon.src = "Icons/fieldIconRed.png";
-    } else if (teamColorValue === "b1" || teamColorValue === "b2" || teamColorValue === "b3") {
-      fieldIcon.src = "Icons/fieldIcon.png";
-    }
-    else {
-        fieldIcon.src = "";
-    }
-
-    var fieldIcon = document.getElementById("field-icon2");
-    if (teamColorValue === "r1" || teamColorValue === "r2" || teamColorValue === "r3") {
-      fieldIcon.src = "Icons/fieldIconRed.png";
-    } else if (teamColorValue === "b1" || teamColorValue === "b2" || teamColorValue === "b3") {
-      fieldIcon.src = "Icons/fieldIcon.png";
-    }
-    else {
-        fieldIcon.src = "";
-    }
-
-  });
-});
-// API Grab for scouter Keys
-function getTeams() {
+// API Grab for Match Number Guess
+/*
+function getMatchNumber() {
   const apiKey = "WK7thdZDs2t0MyZEfmpaAdgUqpBn0CNsPmE4JyzigzpdYZz0EudEr7Ie9HI3Obxe";
   const eventKey = "2023azgl";
-  const matchNumber = parseInt(document.getElementsByName('match')[0].value);
+  const currentTime = Math.floor(Date.now() / 1000); // Get the current epoch time in seconds
 
   const endpoint = `https://www.thebluealliance.com/api/v3/event/${eventKey}/matches/simple?type=qualification&comp_level=qm`;
 
   fetch(endpoint, { headers: { "X-TBA-Auth-Key": apiKey } })
     .then(response => response.json())
     .then(matches => {
-      const match = matches.find(match => match.match_number === matchNumber && match.comp_level === "qm");
+      matches.sort((a, b) => b.predicted_time - a.predicted_time);
+      const match = matches.find(match => {
+        const predictedStartTime = match.predicted_time;
+        return predictedStartTime && predictedStartTime < currentTime && match.comp_level === "qm";
+      });
+
       if (match) {
-        const teamNumbers = [match.alliances.blue.team_keys, match.alliances.red.team_keys].flat()
-          .map(teamKey => teamKey.replace(/^frc/, ''));
-        const [b1, b2, b3, r1, r2, r3] = teamNumbers;
-        console.log(`Teams for match ${matchNumber}:${b1},${b2},${b3},${r1},${r2},${r3}`);
-        document.getElementById('b1').textContent = b1;
-        document.getElementById('b2').textContent = b2;
-        document.getElementById('b3').textContent = b3;
-        document.getElementById('r1').textContent = r1;
-        document.getElementById('r2').textContent = r2;
-        document.getElementById('r3').textContent = r3;
-    } else {
-        console.log(`Match ${matchNumber} not found or not a qualification match`);
-        document.getElementById('b1').textContent = "Blue 1";
-        document.getElementById('b2').textContent = "Blue 2";
-        document.getElementById('b3').textContent = "Blue 3";
-        document.getElementById('r1').textContent = "Red 1";
-        document.getElementById('r2').textContent = "Red 2";
-        document.getElementById('r3').textContent = "Red 3";
+        document.getElementById("match").value = match.match_number;
+        console.log(`Match number with later predicted start time than current time: ${currentTime}, ${match.predicted_time}, ${match.match_number}`);
+      } else {
+        console.log(`No match found with later predicted start time than current time`);
       }
     })
     .catch(error => console.error(error));
 }
 
 
+window.onload = function() {
+  getMatchNumber();
+}
+*/
 
-const scouterInputs = document.getElementsByName('scouter');
-const matchInput = document.getElementsByName('match')[0];
-
-// Add event listeners to all scouter inputs
-scouterInputs.forEach(input => {
-  input.addEventListener("input", getTeams);
-});
-
-// Add event listener to the match input
-matchInput.addEventListener("input", getTeams); 
-
-// Default Images for Pieces Picked
-  const checkbox1 = document.getElementById('starting_piece1');
-  const image1 = document.getElementById('blank1');
-
-  checkbox1.addEventListener('change', function() {
-    if (checkbox1.checked) {
-      image1.src = 'Icons/coneIcon.svg';
-    } else {
-      image1.src = 'icons/cubeIcon.svg';
-    }
-  });
-  const checkbox2 = document.getElementById('starting_piece2');
-  const image2 = document.getElementById('blank2');
-
-  checkbox2.addEventListener('change', function() {
-    if (checkbox2.checked) {
-      image2.src = 'Icons/coneIcon.svg';
-    } else {
-      image2.src = 'icons/cubeIcon.svg';
-    }
-  });
-  const checkbox3 = document.getElementById('starting_piece3');
-  const image3 = document.getElementById('blank3');
-
-  checkbox3.addEventListener('change', function() {
-    if (checkbox3.checked) {
-      image3.src = 'Icons/coneIcon.svg';
-    } else {
-      image3.src = 'icons/cubeIcon.svg';
-    }
-  });
-  const checkbox4 = document.getElementById('starting_piece4');
-  const image4 = document.getElementById('blank4');
-
-  checkbox4.addEventListener('change', function() {
-    if (checkbox4.checked) {
-      image4.src = 'Icons/coneIcon.svg';
-    } else {
-      image4.src = 'icons/cubeIcon.svg';
-    }
-  });
-
-  </script>
-  
+</script>
