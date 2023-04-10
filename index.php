@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>2023 - Scouting Form</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="Icons/5199Icon.png">
@@ -62,34 +62,51 @@
             <div class="grid" style="grid-template-rows: repeat(5, 1fr); grid-template-columns: repeat(4, 1fr);">
                 <!--Name/Match/Team-->
                 <h1 class="block" style="grid-column: 1/5; grid-row: 1/2;"><strong>Pre-Game</strong></h1>
-                <input class="block" type="text" name="name" placeholder="Scouter Name" style="grid-column: 1/3;">
-                <input class="block" type="number" name="match" autocomplete="off" placeholder="Match #" style="grid-column: 3/4;">
-                <input class="block" type="number" name="team" autocomplete="off" placeholder="Team #" style="grid-column: 4/5;">
-                <!--Alliance Color-->
-                <div class="block" style="grid-column: 1/3;">
-                    <strong>Alliance Color</strong>
-                    <div class="grid" style="grid-template-rows: repeat(1, 1fr); grid-template-columns: repeat(3, 1fr);">
+                <div class="block" style="grid-column: 1/5; grid-row: 2/4;">
+                    <div class="grid" style="grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(3, 1fr);">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="teamColor" value="red">
+                            <input type="radio" name="scouter" value="r1">
                             <span class="radioPiece" style="background-color: #f03431; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Red</strong>
+                            <strong id="r1" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Red&nbsp;1</strong>
                         </label>
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="teamColor" value="blue">
-                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Blue</strong>
+                            <input type="radio" name="scouter" value="r2">
+                            <span class="radioPiece" style="background-color: #f03431; border-radius: 20px;"></span>
+                            <strong id="r2" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Red&nbsp;2</strong>
                         </label>
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="teamColor" value="noshow">
+                            <input type="radio" name="scouter" value="r3">
+                            <span class="radioPiece" style="background-color: #f03431; border-radius: 20px;"></span>
+                            <strong id="r3" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Red&nbsp;3</strong>
+                        </label>
+                        <input class="block" type="text" name="name" placeholder="Name" style="grid-column: 4/6;">
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="scouter" value="b1">
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">N/A</strong>
+                            <strong id="b1" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Blue&nbsp;1</strong>
+                        </label>
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="scouter" value="b2">
+                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <strong id="b2" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Blue&nbsp;2</strong>
+                        </label>
+                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
+                            <input type="radio" name="scouter" value="b3">
+                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <strong id="b3" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Blue&nbsp;3</strong>
+                        </label>
+                        <input class="block" type="number" value="" id="match" name="match" autocomplete="off" placeholder="Match #" style="grid-column: 4/6;" pattern="[0-9]*">
+                        <label class="checkbox block" style="background: gray; color: white; grid-column: 1/6;">
+                            <input type="checkbox" name="noshow" value="noshow">
+                            <span class="checkboxPiece" style="background-color: black; border-radius: 20px;"></span>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">No Show</strong>
                         </label>
                     </div>
                 </div>
                 <!--Starting Piece Selection-->
-                <div class="block" style="grid-column: 3/5;">
+                <div class="block" style="grid-row: 4/6; grid-column: 4/5;">
                     <strong>Robot Starting Piece</strong>
-                    <div class="grid" style="grid-template-rows: repeat(1, 1fr); grid-template-columns: repeat(3, 1fr);">
+                    <div class="grid" style="grid-template-rows: repeat(1, 1fr); grid-template-rows: repeat(3, 1fr);">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="starting_piece" value="cone"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
@@ -107,11 +124,11 @@
                         </label>
                     </div>
                 </div>
-                <div class="block" style="grid-row: 4/6; grid-column: 1/5; height: 100%; padding: 0; margin: 0; max-width: fit-content;">
+                <div class="block" style="grid-row: 4/6; grid-column: 1/4; height: 100%; padding: 0; margin: 0; max-width: fit-content;">
                     <strong>Starting Lane and Starting Piece Selection</strong>
                     <p>Select one of the lanes and click to change starting piece Icons</p>
-                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; height: 90%;">
-                        <img id="field-icon" src="Icons/fieldIcon.png" class="block" style="padding: 0; grid-column: 1/3; grid-row: 1/3; max-height: 100%; width: 100%;">
+                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; max-height: 80%;">
+                        <img id="field-icon" src="" class="block" style="padding: 0; grid-column: 1/3; grid-row: 1/3; max-height: 100%; width: 100%;">
                         <!--Starting Lane-->
                         <div id="FieldDiv1" class="block" style="background: none; padding: 0; height: 75%; width: 32.5%; grid-column: 1; grid-row: 1/3; margin-left: 55%;">
                             <div class="grid" style="grid-template-rows: repeat(3, 1fr); grid-template-columns: repeat(1, 1fr);">
@@ -133,22 +150,22 @@
                         <div id="FieldDiv2" class="block" style="background: none; padding: 0; height: 75%; width: 25%; grid-column: 2; grid-row: 1/3; margin-left: 54%;">
                             <div class="grid" style="grid-template-rows: repeat(4, 1fr); grid-template-columns: repeat(1, 1fr);">
                                 <label class="checkbox" style="width: 100%; height: 100%;">
-                                    <input type="checkbox" name="starting_piece1" value="cone"> 
+                                    <input type="checkbox" name="starting_piece1" id="starting_piece1" value="cone"> 
                                     <img src="Icons/cubeIcon.svg" class="blank" >
                                     <img src="Icons/coneIcon.svg" class="checkboxPiece">
                                 </label>
                                 <label class="checkbox" style="width: 100%; height: 100%;">
-                                    <input type="checkbox" name="starting_piece2" value="cone"> 
+                                    <input type="checkbox" name="starting_piece2" id="starting_piece2" value="cone"> 
                                     <img src="Icons/cubeIcon.svg" class="blank">
                                     <img src="Icons/coneIcon.svg" class="checkboxPiece">
                                 </label>
                                 <label class="checkbox" style="width: 100%; height: 100%;">
-                                    <input type="checkbox" name="starting_piece3" value="cone"> 
+                                    <input type="checkbox" name="starting_piece3" id="starting_piece3" value="cone"> 
                                     <img src="Icons/cubeIcon.svg" class="blank">
                                     <img src="Icons/coneIcon.svg" class="checkboxPiece">
                                 </label>
                                 <label class="checkbox" style="width: 100%; height: 100%;">
-                                    <input type="checkbox" name="starting_piece4" value="cone"> 
+                                    <input type="checkbox" name="starting_piece4" id="starting_piece4" value="cone"> 
                                     <img src="Icons/cubeIcon.svg" class="blank">
                                     <img src="Icons/coneIcon.svg" class="checkboxPiece">
                                 </label>
@@ -281,56 +298,12 @@
                         <input name="gridDataAuto" type="hidden" value="" id="gridDataAuto">
                     </div>
                 </div>
-                <!--Picked Pieces-->
-                <div class="block" style="grid-column: 1; grid-row: 4/6;">
-                    <strong >Picked up Pieces</strong>
-                    <p>Select the picked up starting pieces</p>
-                    <div class="grid" style="grid-template-rows: repeat(4, 1fr); height: 100%; width: 100%;">
-                        <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="checkbox" value="1" class="pickedOrder">
-                            <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Piece 1</strong>
-                        </label>
-                        <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="checkbox" value="2" class="pickedOrder">
-                            <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Piece 2</strong>
-                        </label>
-                        <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="checkbox" value="3" class="pickedOrder">
-                            <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Piece 3</strong>
-                        </label>
-                        <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="checkbox" value="4" class="pickedOrder">
-                            <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Piece 4</strong>
-                        </label>
-                    </div>
-                </div>
                 <input name="pieceData" type="hidden" id="pieceData" value="">
-                <!--Left Community-->
-                <div class="block">
-                    <strong >Community</strong>
-                    <p>Did It leave the community durring Auto</p>
-                    <div class="grid" style="grid-template-columns: repeat(2, 1fr); height: 100%; width: 100%;">
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="community" value="stay">
-                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Stayed</strong>
-                        </label>
-                        <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
-                            <input type="radio" name="community" value="left">
-                            <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Left</strong>
-                        </label>
-                    </div>
-                </div>
                 <!--Charge Station-->
                 <div class="block">
                     <strong >Charge Station</strong>
                     <p>No Attempt - Failed - Docked - Enabled</p>
-                    <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
+                    <div class="grid" style="grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); height: 100%; width: 100%;">
                         <label class="radio block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="chargeAuto" value="noattempt"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
@@ -351,9 +324,45 @@
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/enabledIcon.svg" class="blank" style="width: auto; height: 150%;">
                         </label>
+                        <label class="checkbox block" style="background: gray; color: white;  margin-top: 5%; grid-column: 1/5">
+                            <input type="checkbox" name="community" value="left">
+                            <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Left Community</strong>
+                        </label>
                     </div>
                 </div>
-            </div>
+            <!--Auton Pickup-->
+                <div class="block">
+                    <strong>Auton Pickup Pieces</strong>
+                    <p>Select the pieces that the robot picked up durring auton</p>
+                    <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; max-height: 100%; height: fit-content;">
+                        <img id="field-icon2" src="" class="block" style="padding: 0; grid-column: 1/3; grid-row: 1/3; max-height: 100%; width: 100%;">
+                        <div id="FieldDiv22" class="block" style="background: none; padding: 0; height: 75%; width: 25%; grid-column: 2; grid-row: 1/3; margin-left: 54%;">
+                            <div class="grid" style="grid-template-rows: repeat(4, 1fr); grid-template-columns: repeat(1, 1fr);">
+                                <label class="checkbox" style="width: 100%; height: 100%;">
+                                    <input type="checkbox" name="starting_piece1" value="starting_piece1"> 
+                                    <img src="Icons/cubeIcon.svg" class="blank" id="blank1">
+                                    <img src="Icons/checkBox.svg" class="checkboxPiece" style="background-color: transparent;">
+                                </label>
+                                <label class="checkbox" style="width: 100%; height: 100%;">
+                                    <input type="checkbox" name="starting_piece2" value="starting_piece2"> 
+                                    <img src="Icons/cubeIcon.svg" class="blank" id="blank2">
+                                    <img src="Icons/checkBox.svg" class="checkboxPiece" style="background-color: transparent;">
+                                </label>
+                                <label class="checkbox" style="width: 100%; height: 100%;">
+                                    <input type="checkbox" name="starting_piece3" value="starting_piece3"> 
+                                    <img src="Icons/cubeIcon.svg" class="blank" id="blank3">
+                                    <img src="Icons/checkBox.svg" class="checkboxPiece" style="background-color: transparent;">
+                                </label>
+                                <label class="checkbox" style="width: 100%; height: 100%;">
+                                    <input type="checkbox" name="starting_piece4" value="starting_piece4"> 
+                                    <img src="Icons/cubeIcon.svg" class="blank" id="blank4">
+                                    <img src="Icons/checkBox.svg" class="checkboxPiece" style="background-color: transparent;">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </section>
         <!--Teleoperated-->
         <section class="section" id="section3">
@@ -570,12 +579,12 @@
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="lane1" class="defenseLocation"> 
                             <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Lane1</strong>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Lane&nbsp;1</strong>
                         </label>
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="lane3" class="defenseLocation"> 
                             <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
-                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Lane3</strong>
+                            <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Lane&nbsp;3</strong>
                         </label>
                         <label class="checkbox block" style="background: gray; color: white; margin-top: 10%;">
                             <input type="checkbox" value="chase" class="defenseLocation"> 
@@ -860,17 +869,18 @@
 
     // Field Swap 
     
-var teamColorInputs = document.querySelectorAll('input[name="teamColor"]');
+var teamColorInputs = document.querySelectorAll('input[name="scouter"]');
 var teamColorBlock1 = document.getElementById("FieldDiv1");
 var teamColorBlock2 = document.getElementById("FieldDiv2");
+var teamColorBlock22 = document.getElementById("FieldDiv22");
 
 
 teamColorInputs.forEach(function(input) {
   input.addEventListener('change', function() {
-    var teamColorInput = document.querySelector('input[name="teamColor"]:checked');
+    var teamColorInput = document.querySelector('input[name="scouter"]:checked');
     var teamColorValue = teamColorInput.value;
 
-    if (teamColorValue === "red") {
+    if (teamColorValue === "r1" || teamColorValue === "r2" || teamColorValue === "r3") {
       teamColorBlock1.style.gridColumn = "2";
       teamColorBlock1.style.marginLeft = "13%";
     } else {
@@ -878,7 +888,7 @@ teamColorInputs.forEach(function(input) {
       teamColorBlock1.style.marginLeft = "55%";
     }
 
-    if (teamColorValue === "red") {
+    if (teamColorValue === "r1" || teamColorValue === "r2" || teamColorValue === "r3") {
       teamColorBlock2.style.gridColumn = "1";
       teamColorBlock2.style.marginLeft = "21%";
     } else {
@@ -886,13 +896,126 @@ teamColorInputs.forEach(function(input) {
       teamColorBlock2.style.marginLeft = "54%";
     }
 
-    var fieldIcon = document.getElementById("field-icon");
-    if (teamColorValue === "red") {
-      fieldIcon.src = "Icons/fieldIconRed.png";
+    if (teamColorValue === "r1" || teamColorValue === "r2" || teamColorValue === "r3") {
+      teamColorBlock22.style.gridColumn = "1";
+      teamColorBlock22.style.marginLeft = "21%";
     } else {
+      teamColorBlock22.style.gridColumn = "2";
+      teamColorBlock22.style.marginLeft = "54%";
+    }
+
+    var fieldIcon = document.getElementById("field-icon");
+    if (teamColorValue === "r1" || teamColorValue === "r2" || teamColorValue === "r3") {
+      fieldIcon.src = "Icons/fieldIconRed.png";
+    } else if (teamColorValue === "b1" || teamColorValue === "b2" || teamColorValue === "b3") {
       fieldIcon.src = "Icons/fieldIcon.png";
     }
+    else {
+        fieldIcon.src = "";
+    }
+
+    var fieldIcon = document.getElementById("field-icon2");
+    if (teamColorValue === "r1" || teamColorValue === "r2" || teamColorValue === "r3") {
+      fieldIcon.src = "Icons/fieldIconRed.png";
+    } else if (teamColorValue === "b1" || teamColorValue === "b2" || teamColorValue === "b3") {
+      fieldIcon.src = "Icons/fieldIcon.png";
+    }
+    else {
+        fieldIcon.src = "";
+    }
+
   });
 });
+// API Grab for scouter Keys
+function getTeams() {
+  const apiKey = "WK7thdZDs2t0MyZEfmpaAdgUqpBn0CNsPmE4JyzigzpdYZz0EudEr7Ie9HI3Obxe";
+  const eventKey = "2023azgl";
+  const matchNumber = parseInt(document.getElementsByName('match')[0].value);
 
-</script>
+  const endpoint = `https://www.thebluealliance.com/api/v3/event/${eventKey}/matches/simple?type=qualification&comp_level=qm`;
+
+  fetch(endpoint, { headers: { "X-TBA-Auth-Key": apiKey } })
+    .then(response => response.json())
+    .then(matches => {
+      const match = matches.find(match => match.match_number === matchNumber && match.comp_level === "qm");
+      if (match) {
+        const teamNumbers = [match.alliances.blue.team_keys, match.alliances.red.team_keys].flat()
+          .map(teamKey => teamKey.replace(/^frc/, ''));
+        const [b1, b2, b3, r1, r2, r3] = teamNumbers;
+        console.log(`Teams for match ${matchNumber}:${b1},${b2},${b3},${r1},${r2},${r3}`);
+        document.getElementById('b1').textContent = b1;
+        document.getElementById('b2').textContent = b2;
+        document.getElementById('b3').textContent = b3;
+        document.getElementById('r1').textContent = r1;
+        document.getElementById('r2').textContent = r2;
+        document.getElementById('r3').textContent = r3;
+    } else {
+        console.log(`Match ${matchNumber} not found or not a qualification match`);
+        document.getElementById('b1').textContent = "Blue 1";
+        document.getElementById('b2').textContent = "Blue 2";
+        document.getElementById('b3').textContent = "Blue 3";
+        document.getElementById('r1').textContent = "Red 1";
+        document.getElementById('r2').textContent = "Red 2";
+        document.getElementById('r3').textContent = "Red 3";
+      }
+    })
+    .catch(error => console.error(error));
+}
+
+
+
+const scouterInputs = document.getElementsByName('scouter');
+const matchInput = document.getElementsByName('match')[0];
+
+// Add event listeners to all scouter inputs
+scouterInputs.forEach(input => {
+  input.addEventListener("input", getTeams);
+});
+
+// Add event listener to the match input
+matchInput.addEventListener("input", getTeams); 
+
+// Default Images for Pieces Picked
+  const checkbox1 = document.getElementById('starting_piece1');
+  const image1 = document.getElementById('blank1');
+
+  checkbox1.addEventListener('change', function() {
+    if (checkbox1.checked) {
+      image1.src = 'Icons/coneIcon.svg';
+    } else {
+      image1.src = 'icons/cubeIcon.svg';
+    }
+  });
+  const checkbox2 = document.getElementById('starting_piece2');
+  const image2 = document.getElementById('blank2');
+
+  checkbox2.addEventListener('change', function() {
+    if (checkbox2.checked) {
+      image2.src = 'Icons/coneIcon.svg';
+    } else {
+      image2.src = 'icons/cubeIcon.svg';
+    }
+  });
+  const checkbox3 = document.getElementById('starting_piece3');
+  const image3 = document.getElementById('blank3');
+
+  checkbox3.addEventListener('change', function() {
+    if (checkbox3.checked) {
+      image3.src = 'Icons/coneIcon.svg';
+    } else {
+      image3.src = 'icons/cubeIcon.svg';
+    }
+  });
+  const checkbox4 = document.getElementById('starting_piece4');
+  const image4 = document.getElementById('blank4');
+
+  checkbox4.addEventListener('change', function() {
+    if (checkbox4.checked) {
+      image4.src = 'Icons/coneIcon.svg';
+    } else {
+      image4.src = 'icons/cubeIcon.svg';
+    }
+  });
+
+  </script>
+  
