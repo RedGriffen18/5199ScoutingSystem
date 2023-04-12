@@ -13,8 +13,8 @@
     if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["name"])) {
       $name = $_GET["name"];
       $match = $_GET["match"];
-      $noshow = $_GET["noshow"];
       $scouter = $_GET["scouter"];
+      $team = $_GET["team"];
       $starting_piece = $_GET["starting_piece"];
       $starting_lane = $_GET["starting_lane"];
       $starting_piece1 = $_GET["starting_piece1"];
@@ -36,17 +36,22 @@
       $breakButton = $_GET["breakButton"];
       $tippingButton = $_GET["tippingButton"];
       $timerValue = $_GET["timerValue"];
+      $noshow = $_GET["noshow"];
 
       $file = fopen("scouting.csv", "a");
-      $data = array($name, $match, $scouter, $noshow, $starting_piece, $starting_lane, $starting_piece1, $starting_piece2, $starting_piece3, $starting_piece4, $gridDataAuto, $pieceData, $chargeAuto, $community, $gridDataTele, $timerValue, $chargeTele, $chargeTotal, $defenseLocations, $defenseSpeed, $defenseDriver, $defenseComments, $funnyComments, $breakButton, $tippingButton);
+      $data = array($name, $match, $scouter, $team, $starting_piece, $starting_lane, $starting_piece1, $starting_piece2, $starting_piece3, $starting_piece4, $gridDataAuto, $pieceData, $chargeAuto, $community, $gridDataTele, $timerValue, $chargeTele, $chargeTotal, $defenseLocations, $defenseSpeed, $defenseDriver, $defenseComments, $funnyComments, $breakButton, $tippingButton, $noshow);
       fputcsv($file, $data);
       fclose($file);
       header("Location: index.php#section1");
       exit();
     }
 ?>
-    <header id="header"></header>
+    <div class="header grid">
+        <header id="header" style="display: flex; place-self: center;"></header>
+        <img id="team-image" src="" style="display: flex; place-self: center;"/>
+    </div>
     <!--Nav Bar-->
+
     <div class="bar">
         <div class="grid" style="grid-template-columns: repeat(5, 1fr);">
             <a class="block" href="#section1" style="width: 75%; background: gray;"><img src="Icons/preIcon.png"></a>
@@ -129,9 +134,9 @@
                 </div>
                 <div class="block" style="grid-row: 4/6; grid-column: 1/4; max-height: 100%; padding: 0; margin: 0; max-width: fit-content;">
                     <strong>Starting Lane and Starting Piece Selection</strong>
-                    <p>Select one of the lanes and click to change starting piece Icons</p>
+                    <p>Select a lane and click to change starting pieces</p>
                     <div class="grid" style="grid-template-rows: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); width: 100%; max-height: 100%;">
-                        <img id="field-icon" src="Icons/5199Icon.png" class="block" style="padding: 0; grid-column: 1/3; grid-row: 1/3; height: auto; max-height: 100%; width: 100%;">
+                        <img id="field-icon" src="Icons/5199Icon.png" class="block" style="padding: 0; grid-column: 1/3; grid-row: 1/3; height: auto; max-height: 100%; width: 70%;">
                         <!--Starting Lane-->
                         <div id="FieldDiv1" class="block" style="background: none; padding: 0; height: 0%; width: 32.5%; grid-column: 1; grid-row: 1/3; margin-left: 55%;">
                             <div class="grid" style="grid-template-rows: repeat(3, 1fr); grid-template-columns: repeat(1, 1fr);">
@@ -327,7 +332,7 @@
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/enabledIcon.svg" class="blank" style="width: auto; height: 150%;">
                         </label>
-                        <label class="checkbox block" style="background: gray; color: white;  margin-top: 5%; grid-column: 1/5">
+                        <label class="checkbox block" style="background: gray; color: white; margin-top: 5%; grid-column: 1/5;">
                             <input type="checkbox" name="community" value="left">
                             <span class="checkboxPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <strong style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Left Community</strong>
@@ -596,22 +601,22 @@
                 <div class="block">
                     <strong >Bot Speed Rating</strong>
                     <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
-                        <label class="radio block" id="defenseSpeed1" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block speed-star" id="defenseSpeed1" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseSpeed" value="1"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" id="defenseSpeed2" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block speed-star" id="defenseSpeed2" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseSpeed" value="2"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" id="defenseSpeed3" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block speed-star" id="defenseSpeed3" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseSpeed" value="3"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" id="defenseSpeed4" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block speed-star" id="defenseSpeed4" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseSpeed" value="4"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
@@ -622,22 +627,22 @@
                 <div class="block">
                     <strong >Driver Rating</strong>
                     <div class="grid" style="grid-template-columns: repeat(4, 1fr); height: 100%; width: 100%;">
-                        <label class="radio block" id="defenseDriver1" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block defense-star" id="defenseDriver1" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseDriver" value="1"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" id="defenseDriver2" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block defense-star" id="defenseDriver2" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseDriver" value="2"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" id="defenseDriver3" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block defense-star" id="defenseDriver3" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseDriver" value="3"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
                         </label>
-                        <label class="radio block" id="defenseDriver4" style="background: gray; color: white; margin-top: 10%;">
+                        <label class="radio block defense-star" id="defenseDriver4" style="background: gray; color: white; margin-top: 10%;">
                             <input type="radio" name="defenseDriver" value="4"> 
                             <span class="radioPiece" style="background-color: #16478e; border-radius: 20px;"></span>
                             <img src="Icons/starIcon.svg" class="blank" style="width: auto; height: 100%; filter: invert(100%);">
@@ -681,86 +686,28 @@
 </html>
 <script>
 // Star highlighting
-    //Speed Rating Stars
     const inputsS = document.querySelectorAll('input[name="defenseSpeed"]');
-    const defenseSpeed1 = document.getElementById("defenseSpeed1");
-    const defenseSpeed2 = document.getElementById("defenseSpeed2");
-    const defenseSpeed3 = document.getElementById("defenseSpeed3");
-    const defenseSpeed4 = document.getElementById("defenseSpeed4");
-    const defenseSpeed5 = document.getElementById("defenseSpeed5");
+    const speedStars = document.querySelectorAll('.speed-star');
+    setStars(inputsS, speedStars, "#16478e");
 
-    inputsS.forEach(input => {
-      input.addEventListener('change', event => {
-        const value = event.target.value;
-        if (value === "2") {
-          defenseSpeed1.style.backgroundColor = "#16478e";
-          defenseSpeed2.style.backgroundColor = "gray";
-          defenseSpeed3.style.backgroundColor = "gray";
-          defenseSpeed4.style.backgroundColor = "gray";
-        } else if (value === "3") {
-          defenseSpeed1.style.backgroundColor = "#16478e";
-          defenseSpeed2.style.backgroundColor = "#16478e";
-          defenseSpeed3.style.backgroundColor = "gray";
-          defenseSpeed4.style.backgroundColor = "gray";
-        } else if (value === "4") {
-          defenseSpeed1.style.backgroundColor = "#16478e";
-          defenseSpeed2.style.backgroundColor = "#16478e";
-          defenseSpeed3.style.backgroundColor = "#16478e";
-          defenseSpeed4.style.backgroundColor = "gray";
-        }else if (value === "5") {
-          defenseSpeed1.style.backgroundColor = "#16478e";
-          defenseSpeed2.style.backgroundColor = "#16478e";
-          defenseSpeed3.style.backgroundColor = "#16478e";
-          defenseSpeed4.style.backgroundColor = "#16478e";
-        } else {
-          defenseSpeed1.style.backgroundColor = "gray";
-          defenseSpeed2.style.backgroundColor = "gray";
-          defenseSpeed3.style.backgroundColor = "gray";
-          defenseSpeed4.style.backgroundColor = "gray";
-        }
-      });
-    });
-
-    // Driver Rating Stars
     const inputsR = document.querySelectorAll('input[name="defenseDriver"]');
-    const defenseDriver1 = document.getElementById("defenseDriver1");
-    const defenseDriver2 = document.getElementById("defenseDriver2");
-    const defenseDriver3 = document.getElementById("defenseDriver3");
-    const defenseDriver4 = document.getElementById("defenseDriver4");
-    const defenseDriver5 = document.getElementById("defenseDriver5");
+    const defenseStars = document.querySelectorAll('.defense-star');
+    setStars(inputsR, defenseStars, "#16478e");
 
-    inputsR.forEach(input => {
-      input.addEventListener('change', event => {
-        const value = event.target.value;
-        if (value === "2") {
-          defenseDriver1.style.backgroundColor = "#16478e";
-          defenseDriver2.style.backgroundColor = "gray";
-          defenseDriver3.style.backgroundColor = "gray";
-          defenseDriver4.style.backgroundColor = "gray";
-        } else if (value === "3") {
-          defenseDriver1.style.backgroundColor = "#16478e";
-          defenseDriver2.style.backgroundColor = "#16478e";
-          defenseDriver3.style.backgroundColor = "gray";
-          defenseDriver4.style.backgroundColor = "gray";
-        } else if (value === "4") {
-          defenseDriver1.style.backgroundColor = "#16478e";
-          defenseDriver2.style.backgroundColor = "#16478e";
-          defenseDriver3.style.backgroundColor = "#16478e";
-          defenseDriver4.style.backgroundColor = "gray";
-        }else if (value === "5") {
-          defenseDriver1.style.backgroundColor = "#16478e";
-          defenseDriver2.style.backgroundColor = "#16478e";
-          defenseDriver3.style.backgroundColor = "#16478e";
-          defenseDriver4.style.backgroundColor = "#16478e";
-        } else {
-          defenseDriver1.style.backgroundColor = "gray";
-          defenseDriver2.style.backgroundColor = "gray";
-          defenseDriver3.style.backgroundColor = "gray";
-          defenseDriver4.style.backgroundColor = "gray";
-        }
-      });
-    });
-    
+    function setStars(inputs, stars, color) {
+        inputs.forEach(input => {
+            input.addEventListener('change', event => {
+                const value = event.target.value;
+                stars.forEach((star, index) => {
+                    if (index < value) {
+                        star.style.backgroundColor = color;
+                    } else {
+                        star.style.backgroundColor = "gray";
+                    }
+                });
+            });
+        });
+    }
 
 // Selection Order
     // Picked up Auton Piece
@@ -847,37 +794,27 @@
     });
 
 // Field Swap
-    var teamColorInputs = document.querySelectorAll('input[name="scouter"]');
-    var teamColorBlock1 = document.getElementById("FieldDiv1");
-    var teamColorBlock2 = document.getElementById("FieldDiv2");
+    const teamColorInputs = document.querySelectorAll('input[name="scouter"]');
+    const teamColorBlock1 = document.getElementById("FieldDiv1");
+    const teamColorBlock2 = document.getElementById("FieldDiv2");
+    const fieldIcon = document.getElementById("field-icon");
 
-
-    teamColorInputs.forEach(function(input) {
-        input.addEventListener('change', function() {
-            var teamColorInput = document.querySelector('input[name="scouter"]:checked');
-            var teamColorValue = teamColorInput.value;
-            var fieldIcon = document.getElementById("field-icon");
-    // Red
-            if (teamColorValue === "r1" || teamColorValue === "r2" || teamColorValue === "r3") {
-                fieldIcon.src = "Icons/fieldIconRed.png";
-                teamColorBlock2.style.height = "75%";
-                teamColorBlock1.style.height = "75%";
-                teamColorBlock1.style.gridColumn = "2";
-                teamColorBlock1.style.marginLeft = "13%";
-                teamColorBlock2.style.gridColumn = "1";
-                teamColorBlock2.style.marginLeft = "21%";
-    // Blue
-            } else if (teamColorValue === "b1" || teamColorValue === "b2" || teamColorValue === "b3") {
-                fieldIcon.src = "Icons/fieldIcon.png";
-                teamColorBlock2.style.height = "75%";
-                teamColorBlock1.style.height = "75%";
-                teamColorBlock2.style.gridColumn = "2";
-                teamColorBlock2.style.marginLeft = "54%";
-                teamColorBlock1.style.gridColumn = "1";
-                teamColorBlock1.style.marginLeft = "55%";
-            }
+    teamColorInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            const teamColorValue = document.querySelector('input[name="scouter"]:checked').value;
+            const isRed = teamColorValue.startsWith('r');
+            
+            fieldIcon.src = isRed ? "Icons/fieldIconRed.png" : "Icons/fieldIcon.png";
+            fieldIcon.style.width = "100%";
+            teamColorBlock1.style.height = "75%";
+            teamColorBlock2.style.height = "75%";
+            teamColorBlock1.style.gridColumn = isRed ? "2" : "1";
+            teamColorBlock2.style.gridColumn = isRed ? "1" : "2";
+            teamColorBlock1.style.marginLeft = isRed ? '13%' : '55%';
+            teamColorBlock2.style.marginLeft = isRed ? '21%' : '54%';
         });
     });
+
 
 // API - Team Numbers per Match
     const scouterInputs = document.getElementsByName('scouter');
@@ -937,10 +874,12 @@
         .catch(error => console.error(error));
     }
 
+
 // Header Function
     function getHeader() {
         scouterInputs.forEach(input => {
             if (input.checked) {
+                document.getElementById("team-image").src = "";
                 const value = input.value;
                 const MatchValue = document.getElementById('match').value;
                 const TeamValue = document.getElementById('team').value;
@@ -954,12 +893,31 @@
                 };
                 if (TeamValue > 0 && headerValues[value]) {
                    document.getElementById('header').textContent = headerValues[value] + ": " + TeamValue;
-                }  else if (headerValues[value]) {
+                }  else if (headerValues[value] && MatchValue !== "") {
                    document.getElementById('header').textContent = headerValues[value] + ": " + document.getElementById(value).textContent;
                 }  else {
                     document.getElementById('header').textContent = headerValues[value] + ":"
                 }
-            }
+                var teamKey = document.getElementById(value).textContent;
+			    var year = "2023";
+			    var apiKey = "WK7thdZDs2t0MyZEfmpaAdgUqpBn0CNsPmE4JyzigzpdYZz0EudEr7Ie9HI3Obxe";
+			    var url = "https://www.thebluealliance.com/api/v3/team/frc" + teamKey + "/media/" + year + "?X-TBA-Auth-Key=" + apiKey;
+			    fetch("https://www.thebluealliance.com/api/v3/team/frc" + teamKey + "?X-TBA-Auth-Key=" + apiKey)
+                    .then(response => response.json())
+                    .then(data => {
+                        const teamNickname = data.nickname;
+                        document.getElementById('header').textContent += teamNickname ? " - " + teamNickname : "";
+                })
+                fetch(url)
+			    	.then(response => response.json())
+			    	.then(data => {
+			    		var media = data[0].details.base64Image;
+			    		var img = document.getElementById("team-image");
+			    		img.src = media ? "data:image/png;base64," + media : "";
+                })
+                
+                .catch(error => console.error(error));
+                }
         });
     }
 
@@ -1038,5 +996,4 @@ window.onload = function() {
   getMatchNumber();
 }
 */
-
 </script>
