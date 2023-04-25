@@ -150,7 +150,7 @@ matchInput.addEventListener("input", getTeams);
 
 function getTeams() {
     const apiKey = "WK7thdZDs2t0MyZEfmpaAdgUqpBn0CNsPmE4JyzigzpdYZz0EudEr7Ie9HI3Obxe";
-    const eventKey = "2023azgl";
+    const eventKey = "2023gal";
     const matchNumber = parseInt(document.getElementsByName('match')[0].value);
 
     const endpoint = `https://www.thebluealliance.com/api/v3/event/${eventKey}/matches/simple`;
